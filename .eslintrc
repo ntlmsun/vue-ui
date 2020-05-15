@@ -1,0 +1,25 @@
+{
+  "globals": {
+    "ga": true,
+    "chrome": true
+  },
+  "plugins": ["html", "json"],
+  "extends": "elemefe",
+  "rules": {
+    "no-undef": "off",
+    "no-console": "off",
+    "no-unused-vars": "off",
+    "no-prototype-builtins": "off",
+    "no-case-declarations": "off",
+    "semi": "off",
+    "indent": "off",
+    "padded-blocks": "off",
+    "no-multiple-empty-lines": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  }
+}
