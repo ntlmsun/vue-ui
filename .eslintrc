@@ -9,6 +9,7 @@
     "no-undef": "off",
     "no-console": "off",
     "no-unused-vars": "off",
+    "no-unreachable": "off",
     "no-array-constructor": "off",
     "no-prototype-builtins": "off",
     "no-case-declarations": "off",
