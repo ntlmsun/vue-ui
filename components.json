@@ -1,3 +1,4 @@
 {
-  "card": "./packages/card/index.js"
+  "card": "./packages/card/index.js",
+  "convert": "./packages/convert/index.js"
 }
