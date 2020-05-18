@@ -1,4 +1,5 @@
 {
   "card": "./packages/card/index.js",
-  "convert": "./packages/convert/index.js"
+  "convert": "./packages/convert/index.js",
+  "http": "./packages/http/index.js"
 }

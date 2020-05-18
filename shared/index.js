@@ -2,10 +2,12 @@
 
 import Card from '../packages/card/index.js';
 import Convert from '../packages/convert/index.js';
+import Http from '../packages/http/index.js';
 
 const components = [
   Card,
-  Convert
+  Convert,
+  Http
 ];
 
 const install = function(Vue) {
@@ -15,6 +17,8 @@ const install = function(Vue) {
   });
 
   Vue.prototype.$convert = Convert;
+  Vue.prototype.$http = Http;
+  Vue.prototype.VUE_APP_MAGIC_VAL = '0000';
 }
 
 /* istanbul ignore if */
@@ -26,5 +30,6 @@ export default {
   version: '0.0.1',
   install,
   Card,
-  Convert
+  Convert,
+  Http
 };

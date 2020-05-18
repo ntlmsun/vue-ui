@@ -23,6 +23,8 @@ const install = function(Vue) {
   });
 
   Vue.prototype.$convert = Convert;
+  Vue.prototype.$http = Http;
+  Vue.prototype.VUE_APP_MAGIC_VAL = '0000';
 }
 
 /* istanbul ignore if */
