@@ -5,7 +5,7 @@ const HttpClient = function() {};
 
 HttpClient.$get = (url, success = () => {}, error = response => console.log(response.message)) => {
   return axios.get(url).then(response => {
-    if (response.code === Vue.prototype.VUE_APP_MAGIC_VAL) {
+    if (response.code === Vue.prototype.$VUE_APP_MAGIC_VAL) {
       success(response.data);
     } else {
       error(response);
@@ -15,7 +15,7 @@ HttpClient.$get = (url, success = () => {}, error = response => console.log(resp
 
 HttpClient.$post = (url, params, success = () => {}, error = response => console.log(response.message)) => {
   return axios.post(url, params).then(response => {
-    if (response.code === Vue.prototype.VUE_APP_MAGIC_VAL) {
+    if (response.code === Vue.prototype.$VUE_APP_MAGIC_VAL) {
       success(response.data);
     } else {
       error(response);
@@ -25,7 +25,7 @@ HttpClient.$post = (url, params, success = () => {}, error = response => console
 
 HttpClient.$put = (url, params, success = () => {}, error = response => console.log(response.message)) => {
   return axios.put(url, params).then(response => {
-    if (response.code === Vue.prototype.VUE_APP_MAGIC_VAL) {
+    if (response.code === Vue.prototype.$VUE_APP_MAGIC_VAL) {
       success(response.data);
     } else {
       error(response);
@@ -35,7 +35,7 @@ HttpClient.$put = (url, params, success = () => {}, error = response => console.
 
 HttpClient.$delete = (url, success = () => {}, error = response => console.log(response.message)) => {
   return axios.delete(url).then(response => {
-    if (response.code === Vue.prototype.VUE_APP_MAGIC_VAL) {
+    if (response.code === Vue.prototype.$VUE_APP_MAGIC_VAL) {
       success(response.data);
     } else {
       error(response);
@@ -45,7 +45,7 @@ HttpClient.$delete = (url, success = () => {}, error = response => console.log(r
 
 HttpClient.$request = (config, success = () => {}, error = response => console.log(response.message)) => {
   return axios.request(config).then(response => {
-    if (response.code === Vue.prototype.VUE_APP_MAGIC_VAL) {
+    if (response.code === Vue.prototype.$VUE_APP_MAGIC_VAL) {
       success(response.data);
     } else {
       error(response);
@@ -65,7 +65,7 @@ HttpClient.$head = (url, success = () => {}, error = response => console.log(res
 
 HttpClient.$options = (url, success = () => {}, error = response => console.log(response.message), config) => {
   return axios.options(url, config).then(response => {
-    if (response.code === Vue.prototype.VUE_APP_MAGIC_VAL) {
+    if (response.code === Vue.prototype.$VUE_APP_MAGIC_VAL) {
       success(response.data);
     } else {
       error(response);
@@ -75,7 +75,7 @@ HttpClient.$options = (url, success = () => {}, error = response => console.log(
 
 HttpClient.$patch = (url, param, success = () => {}, error = response => console.log(response.message), config) => {
   return axios.patch(url, param, config).then(response => {
-    if (response.code === Vue.prototype.VUE_APP_MAGIC_VAL) {
+    if (response.code === Vue.prototype.$VUE_APP_MAGIC_VAL) {
       success(response.data);
     } else {
       error(response);

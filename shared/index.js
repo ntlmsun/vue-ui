@@ -3,6 +3,8 @@
 import Card from '../packages/card/index.js';
 import Convert from '../packages/convert/index.js';
 import Http from '../packages/http/index.js';
+import oAxiosInterceptor from '../shared/utils/axios/axios.js';
+import { Startup } from '../shared/utils/axios/startup.js';
 
 const components = [
   Card,
@@ -18,7 +20,10 @@ const install = function(Vue) {
 
   Vue.prototype.$convert = Convert;
   Vue.prototype.$http = Http;
-  Vue.prototype.VUE_APP_MAGIC_VAL = '0000';
+
+  oAxiosInterceptor.init();
+
+  Startup.bootstrap();
 }
 
 /* istanbul ignore if */

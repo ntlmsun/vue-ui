@@ -8,15 +8,18 @@ _2020-05-18_
 
 1. Convert 转换码信息添加
 
-/\*_ 获取五笔码 _/ wbConvert(text: string): string;
+/\*_ 获取五笔码 _/ 
+wbConvert(text: string): string;
 
-/\*_ 获取全拼码 _/ fullConvert(text: string): string;
+/\*_ 获取全拼码 _/ 
+fullConvert(text: string): string;
 
-/\*_ 获取简拼码 _/ SimpConvert(text: string): string;
+/\*_ 获取简拼码 _/ 
+SimpConvert(text: string): string;
 
 ### 使用方法
 
-this.\$convert.SimpConvert('汉字') =>
+this.$convert.SimpConvert('汉字') =>
 
 import { Convert } from 'msun-lib-ui';
 
@@ -55,3 +58,6 @@ this.$http.$get() =>
 import { Http } from 'msun-lib-ui';
 
 Http.$get()
+
+
+3. axios 封装
