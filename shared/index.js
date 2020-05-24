@@ -5,6 +5,7 @@ import Convert from '../packages/convert/index.js';
 import Http from '../packages/http/index.js';
 import oAxiosInterceptor from '../shared/utils/axios/axios.js';
 import { Startup } from '../shared/utils/axios/startup.js';
+import StoreModule from '../shared/utils/store/index.js';
 
 const components = [
   Card,
@@ -20,6 +21,7 @@ const install = function(Vue) {
 
   Vue.prototype.$convert = Convert;
   Vue.prototype.$http = Http;
+  Vue.prototype.$storeModule = StoreModule;
 
   oAxiosInterceptor.init();
 
@@ -32,8 +34,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.0.1',
+  version: '0.0.2',
   install,
+  StoreModule,
   Card,
   Convert,
   Http

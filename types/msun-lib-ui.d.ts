@@ -1,12 +1,9 @@
 import Vue from 'vue';
 import { ElCard } from './card';
-import {
-  MsunUIComponent,
-  MsunUIComponentSize,
-  MsunUIHorizontalAlignment,
-} from './component';
+import { MsunUIComponent, MsunUIComponentSize, MsunUIHorizontalAlignment } from './component';
 import { MsunConvert } from './convert';
 import { MsunHttpClient } from './http';
+import { Store } from './store';
 
 export function install(vue: typeof Vue): void;
 
@@ -18,6 +15,8 @@ export type ComponentSize = MsunUIComponentSize;
 
 /** Horizontal alignment */
 export type HorizontalAlignment = MsunUIHorizontalAlignment;
+
+export const StoreModule: Store<any>;
 
 /** Convert */
 export const Convert: MsunConvert;

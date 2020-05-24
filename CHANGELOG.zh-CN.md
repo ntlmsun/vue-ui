@@ -57,7 +57,16 @@ this.$http.$get() =>
 
 import { Http } from 'msun-lib-ui';
 
-Http.$get()
+Http.$get() 
 
+## 注意事项 
+
+需要在main.ts 注册 Vue.prototype.$VUE_APP_MAGIC_VAL
 
 3. axios 封装
+
+默认引入 Startup 事件
+
+## 注意事项 
+
+需要在main.ts 注册 Vue.prototype.$NODE_ENV
