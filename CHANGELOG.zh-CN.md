@@ -70,3 +70,51 @@ Http.$get()
 ## 注意事项 
 
 需要在main.ts 注册 Vue.prototype.$NODE_ENV
+
+### 0.0.2
+
+_2020-05-25_
+
+#### 新特性
+
+1. store 封装
+
+/\*_ ErrorLog _/ 
+[type] = ErrorLog 
+
+/\*_ Route _/
+[type] = Route
+
+/\*_ Settings _/
+[type] = Settings
+
+/\*_ TagsView _/
+[type] = TagsView
+
+/\*_ User _/
+[type] = User
+
+### 等价使用方法
+
+import { mStore } from 'msun-lib-ui';
+
+this.$mStore.state.[type].[params] => mStore.state.[type].[params]
+
+this.$mStore.dispatch([type].[function], { } = option) => mStore.dispatch([type].[function], { } = option)
+
+2. cookie 封装
+
+/** get token */
+getToken(): string | undefined;
+
+/** set token */
+setToken(value: string | undefined): void;
+
+/** remove token */
+removeToken(): void;
+
+/** get language */
+getLanguage(): string | undefined;
+
+/** set language */
+setLanguage(value: string | undefined): void;

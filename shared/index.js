@@ -3,7 +3,7 @@
 import Card from '../packages/card/index.js';
 import oAxiosInterceptor from '../shared/utils/axios/axios.js';
 import { Startup } from '../shared/utils/axios/startup.js';
-import StoreModule from '../shared/utils/store/index.js';
+import mStore from '../shared/utils/store/index.js';
 import Http from '../shared/utils/http/index.js';
 import Convert from '../shared/utils/convert/index.js';
 import Cookie from '../shared/utils/cookie/index.js';
@@ -21,7 +21,7 @@ const install = function(Vue) {
   Vue.prototype.$convert = Convert;
   Vue.prototype.$http = Http;
   Vue.prototype.$cookie = Cookie;
-  Vue.prototype.$storeModule = StoreModule;
+  Vue.prototype.$mStore = mStore;
 
   oAxiosInterceptor.init();
 
@@ -39,6 +39,6 @@ export default {
   Http,
   Convert,
   Cookie,
-  StoreModule,
+  mStore,
   Card
 };

@@ -1,8 +1,9 @@
+import msunVariables from 'css-loader!./../../../styles/msun-variables.scss';
 import defaultSettings from './../../settings/settings';
 
 const Settings = {
   state: {
-    theme: '',
+    theme: msunVariables.theme,
     fixedHeader: defaultSettings.fixedHeader,
     showSettings: defaultSettings.showSettings,
     showTagsView: defaultSettings.showTagsView,

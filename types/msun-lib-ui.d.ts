@@ -18,7 +18,7 @@ export type ComponentSize = MsunUIComponentSize;
 export type HorizontalAlignment = MsunUIHorizontalAlignment;
 
 /** store module */
-export const StoreModule: Store<any>;
+export const mStore: Store<any>;
 
 /** cookie */
 export const Cookie: MsunCookie;

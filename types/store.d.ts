@@ -7,6 +7,6 @@ declare module 'vue/types/vue' {
     /**
      * @todo store =>
      */
-    $storx: Store<any>;
+    $mStore: Store<any>;
   }
 }
