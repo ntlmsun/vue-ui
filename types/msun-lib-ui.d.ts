@@ -2,6 +2,7 @@ import Vue from 'vue';
 import { ElCard } from './card';
 import { MsunUIComponent, MsunUIComponentSize, MsunUIHorizontalAlignment } from './component';
 import { MsunConvert } from './convert';
+import { MsunCookie } from './cookie';
 import { MsunHttpClient } from './http';
 import { Store } from './store';
 
@@ -16,7 +17,11 @@ export type ComponentSize = MsunUIComponentSize;
 /** Horizontal alignment */
 export type HorizontalAlignment = MsunUIHorizontalAlignment;
 
+/** store module */
 export const StoreModule: Store<any>;
+
+/** cookie */
+export const Cookie: MsunCookie;
 
 /** Convert */
 export const Convert: MsunConvert;

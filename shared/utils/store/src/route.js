@@ -20,7 +20,7 @@ export const filterAsyncRoutes = (routes, roles) => {
   return res;
 };
 
-const route = {
+const Route = {
   state: {
     routes: [],
     dynamicRoutes: []
@@ -34,9 +34,9 @@ const route = {
     }
   },
   mutations: {
-    SET_ROUTES(state, { constantRoutes, routes } = option) {
-      state.routes = constantRoutes.concat(routes);
-      state.dynamicRoutes = routes;
+    SET_ROUTES(state, { constantRoutes, asyncRoutes } = option) {
+      state.routes = constantRoutes.concat(asyncRoutes);
+      state.dynamicRoutes = asyncRoutes;
     }
   },
   actions: {
@@ -46,4 +46,4 @@ const route = {
   }
 };
 
-export default route;
+export default Route;
