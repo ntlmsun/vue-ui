@@ -6,7 +6,7 @@ _2020-05-18_
 
 #### 新特性
 
-1. Convert 转换码信息添加
+##### 1. Convert 转换码信息添加
 
 /\*_ 获取五笔码 _/ 
 wbConvert(text: string): string;
@@ -17,15 +17,11 @@ fullConvert(text: string): string;
 /\*_ 获取简拼码 _/ 
 SimpConvert(text: string): string;
 
-### 使用方法
-
-this.$convert.SimpConvert('汉字') =>
-
 import { Convert } from 'msun-lib-ui';
 
-Convert.SimpConvert('汉字');
+this.$convert.SimpConvert('汉字') => Convert.SimpConvert('汉字');
 
-2. http 请求约束添加
+##### 2. http 请求约束添加
 
 /\*_ GET _/ 
 $get(url: string, success?: Function, error?: Function): Promise<any>;
@@ -51,25 +47,18 @@ $options(url: string, success?: Function, error?: Function, config?: AxiosReques
 /\*_ PATCH _/ 
 $patch(url: string, param: any, success?: Function, error?: Function, config?: AxiosRequestConfig): Promise<any>;
 
-### 使用方法
-
-this.$http.$get() => 
 
 import { Http } from 'msun-lib-ui';
 
-Http.$get() 
+this.$http.$get() => Http.$get()
 
-## 注意事项 
+需要在 main.ts 注册 Vue.prototype.$VUE_APP_MAGIC_VAL
 
-需要在main.ts 注册 Vue.prototype.$VUE_APP_MAGIC_VAL
-
-3. axios 封装
+##### 3. axios 封装
 
 默认引入 Startup 事件
 
-## 注意事项 
-
-需要在main.ts 注册 Vue.prototype.$NODE_ENV
+需要在 main.ts 注册 Vue.prototype.$NODE_ENV
 
 ### 0.0.2
 
@@ -77,24 +66,22 @@ _2020-05-25_
 
 #### 新特性
 
-1. store 封装
+##### 1. store 封装
 
 /\*_ ErrorLog _/ 
-[type] = ErrorLog 
+[type] = ErrorLog
 
-/\*_ Route _/
+/\*_ Route _/ 
 [type] = Route
 
-/\*_ Settings _/
+/\*_ Settings _/ 
 [type] = Settings
 
-/\*_ TagsView _/
+/\*_ TagsView _/ 
 [type] = TagsView
 
-/\*_ User _/
+/\*_ User _/ 
 [type] = User
-
-### 等价使用方法
 
 import { mStore } from 'msun-lib-ui';
 
@@ -102,19 +89,19 @@ this.$mStore.state.[type].[params] => mStore.state.[type].[params]
 
 this.$mStore.dispatch([type].[function], { } = option) => mStore.dispatch([type].[function], { } = option)
 
-2. cookie 封装
+##### 2. cookie 封装
 
-/** get token */
+/\*_ get token _/ 
 getToken(): string | undefined;
 
-/** set token */
+/\*_ set token _/ 
 setToken(value: string | undefined): void;
 
-/** remove token */
+/\*_ remove token _/ 
 removeToken(): void;
 
-/** get language */
+/\*_ get language _/ 
 getLanguage(): string | undefined;
 
-/** set language */
+/\*_ set language _/ 
 setLanguage(value: string | undefined): void;
