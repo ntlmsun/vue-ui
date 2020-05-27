@@ -13,6 +13,24 @@ export interface MsunCookie {
 
   /** set language */
   setLanguage(value: string | undefined): void;
+
+  /** get size */
+  getSize(): string | undefined;
+
+  /** set size */
+  setSize(value: string | undefined): void;
+
+  /** get font size */
+  getFontSize(): string | undefined;
+
+  /** set font size */
+  setFontSize(value: string | undefined): void;
+
+  /** get sidebar status */
+  getSidebarStatus(): string | undefined;
+
+  /** set sidebar status */
+  setSidebarStatus(value: string | undefined): void;
 }
 
 declare module 'vue/types/vue' {

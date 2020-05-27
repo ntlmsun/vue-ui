@@ -17,6 +17,9 @@ import mStore from '../shared/utils/store/index.js';
 import Http from '../shared/utils/http/index.js';
 import Convert from '../shared/utils/convert/index.js';
 import Cookie from '../shared/utils/cookie/index.js';
+import '../packages/icons/components';
+import SvgIcon from 'vue-svgicon';
+import Router from 'vue-router';
 
 const components = [
 {{install}}
@@ -27,6 +30,14 @@ const install = function(Vue) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
+
+  Vue.use(SvgIcon, {
+    tagName: 'svg-icon',
+    defaultWidth: '1em',
+    defaultHeight: '1em'
+  });  
+
+  Vue.use(Router);
 
   Vue.prototype.$convert = Convert;
   Vue.prototype.$http = Http;

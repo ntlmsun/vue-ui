@@ -30,7 +30,16 @@ $--border-color-lighter: #e6ebf5;
 /** msun color success */
 $--table-border: 1px solid #dfe6ec;
 
+$--menu-backgroud: #304156;
+
+$--menu-text: #bfcdb9;
+
+$--menu-text-active: #409eff;
+
 /** The :export directive is the magic sauce for webpack */
 :export {
   theme: $--color-primary;
+  menuBackground: $--menu-backgroud;
+  menuText: $--menu-text;
+  menuActiveText: $--menu-text-active;
 }

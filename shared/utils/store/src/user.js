@@ -1,4 +1,4 @@
-import Cookie from '../../cookie';
+import Cookie from 'msun-lib-ui/shared/utils/cookie/index';
 
 const User = {
   state: {

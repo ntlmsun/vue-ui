@@ -1,0 +1,42 @@
+.msun-fade-transform {
+  &-level-active,
+  &-enter-active {
+    transition: all 0.5s;
+  }
+  &-enter {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  &-level-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+.msun-breadCrumb {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.5s;
+  }
+  &-enter,
+  &-leave-active {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  &-move {
+    transition: all 0.5s;
+  }
+  &-leave-active {
+    position: absolute;
+  }
+}
+
+.msun-sidaber-logo-fade {
+  &-enter-active {
+    transition: opacity 1.5s;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}

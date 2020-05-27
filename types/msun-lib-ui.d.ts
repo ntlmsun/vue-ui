@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import { ElCard } from './card';
 import { MsunUIComponent, MsunUIComponentSize, MsunUIHorizontalAlignment } from './component';
 import { MsunConvert } from './convert';
 import { MsunCookie } from './cookie';
+import { MsunDefaultLayout } from './default-layout';
 import { MsunHttpClient } from './http';
 import { Store } from './store';
 
@@ -29,5 +29,5 @@ export const Convert: MsunConvert;
 /** Http */
 export const Http: MsunHttpClient;
 
-/** Card Component */
-export class Card extends ElCard {}
+/** Layout Component */
+export class DefaultLayout extends MsunDefaultLayout {}

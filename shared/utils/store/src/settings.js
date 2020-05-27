@@ -1,5 +1,5 @@
-import msunVariables from 'css-loader!./../../../styles/msun-variables.scss';
-import defaultSettings from './../../settings/settings';
+import msunVariables from 'css-loader!msun-lib-ui/shared/styles/msun-variables.scss';
+import defaultSettings from 'msun-lib-ui/shared/utils/settings/settings';
 
 const Settings = {
   state: {
