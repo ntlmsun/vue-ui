@@ -9,7 +9,6 @@
   </div>
 </template>
 <script>
-import variables from 'css-loader!msun-lib-ui/shared/styles/msun-variables.scss';
 import MsunSidebarItem from './msun-sidebar-item.vue';
 import MsunSidebarLogo from './msun-sidebar-logo.vue';
 
@@ -33,11 +32,11 @@ export default {
       if (this.$mStore.state.Settings.sidebarTextTheme) {
         return this.$mStore.state.Settings.theme;
       } else {
-        variables.menuActiveText;
+        return this.$mStore.state.Menu.variables.menuActiveText;
       }
     },
     variables() {
-      return variables;
+      return this.$mStore.state.Menu.variables;
     },
     activeMenu() {
       const route = this.$route;

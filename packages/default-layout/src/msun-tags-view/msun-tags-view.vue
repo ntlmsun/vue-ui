@@ -1,11 +1,11 @@
 <template>
   <div id="tags-view-container" class="tags-view-container">
-    <scroll-pane ref="scrollPane" class="tags-view-wrapper">
-      <router-link v-for="tag in visitedViews" ref="tag" :key="tag.path" :class="isActive(tag) ? 'active' : ''" :style="{fontSize: customFontsize + 'px'}" :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}" tag="span" class="tags-view-item" @click.middle.native="!isAffix(tag)?closeSelectedTag(tag):''" @contextmenu.prevent.native="openMenu(tag, $event)">
+    <msun-scroll-pane ref="scrollPane" class="tags-view-wrapper">
+      <router-link v-for="tag in visitedViews" ref="tag" :key="tag.path" :class="isActive(tag) ? 'active' : ''" :style="{fontSize: customFontSize + 'px'}" :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}" tag="span" class="tags-view-item" @click.middle.native="!isAffix(tag)?closeSelectedTag(tag):''" @contextmenu.prevent.native="openMenu(tag, $event)">
         {{ $t('route.' + tag.meta.title) }}
         <span v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
       </router-link>
-    </scroll-pane>
+    </msun-scroll-pane>
     <ul v-show="visible" :style="{left: left+'px', top: top+'px'}" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">
         {{ $t('tagsView.refresh') }}
@@ -129,55 +129,55 @@ export default {
           path: '/redirect' + fullPath
         });
       });
-    }
-  },
-  closeSelectedTag(view) {
-    TagsViewModule.delView(view);
-    if (this.isActive(view)) {
-      this.toLastView(TagsViewModule.visitedViews, view);
-    }
-  },
-  closeOthersTags() {
-    this.$router.push(this.selectedTag);
-    TagsViewModule.delOthersViews(this.selectedTag);
-    this.moveToCurrentTag();
-  },
-  closeAllTags(view) {
-    TagsViewModule.delAllViews();
-    if (this.affixTags.some(tag => tag.path === this.$route.path)) {
-      return;
-    }
-    this.toLastView(TagsViewModule.visitedViews, view);
-  },
-  toLastView(visitedViews, view) {
-    const latestView = visitedViews.slice(-1)[0];
-    if (latestView) {
-      this.$router.push(latestView);
-    } else {
-      if (view.name === 'Dashboard') {
-        this.$router.replace({ path: '/redirect' + view.fullPath });
-      } else {
-        this.$router.push('/');
+    },
+    closeSelectedTag(view) {
+      TagsViewModule.delView(view);
+      if (this.isActive(view)) {
+        this.toLastView(TagsViewModule.visitedViews, view);
       }
+    },
+    closeOthersTags() {
+      this.$router.push(this.selectedTag);
+      TagsViewModule.delOthersViews(this.selectedTag);
+      this.moveToCurrentTag();
+    },
+    closeAllTags(view) {
+      TagsViewModule.delAllViews();
+      if (this.affixTags.some(tag => tag.path === this.$route.path)) {
+        return;
+      }
+      this.toLastView(TagsViewModule.visitedViews, view);
+    },
+    toLastView(visitedViews, view) {
+      const latestView = visitedViews.slice(-1)[0];
+      if (latestView) {
+        this.$router.push(latestView);
+      } else {
+        if (view.name === 'Dashboard') {
+          this.$router.replace({ path: '/redirect' + view.fullPath });
+        } else {
+          this.$router.push('/');
+        }
+      }
+    },
+    openMenu(tag, e) {
+      const menuMinWidth = 105;
+      const offsetLeft = this.$el.getBoundingClientRect().left;
+      const offsetWidth = this.$el.offsetWidth;
+      const maxLeft = offsetWidth - menuMinWidth;
+      const left = e.clientX - offsetLeft + 15;
+      if (left > maxLeft) {
+        this.left = maxLeft;
+      } else {
+        this.left = left;
+      }
+      this.top = e.clientY;
+      this.visible = true;
+      this.selectedTag = tag;
+    },
+    closeMenu() {
+      this.visible = false;
     }
-  },
-  openMenu(tag, e) {
-    const menuMinWidth = 105;
-    const offsetLeft = this.$el.getBoundingClientRect().left;
-    const offsetWidth = this.$el.offsetWidth;
-    const maxLeft = offsetWidth - menuMinWidth;
-    const left = e.clientX - offsetLeft + 15;
-    if (left > maxLeft) {
-      this.left = maxLeft;
-    } else {
-      this.left = left;
-    }
-    this.top = e.clientY;
-    this.visible = true;
-    this.selectedTag = tag;
-  },
-  closeMenu() {
-    this.visible = false;
   }
 };
 </script>

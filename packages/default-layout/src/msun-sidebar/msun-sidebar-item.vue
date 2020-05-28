@@ -1,24 +1,24 @@
 <template>
   <div v-if="!item.meta || !item.meta.hidden" :class="[isCollapse ? 'msun-default-layout-simple-mode' : 'msun-default-layout-full-mode', {'first-level': isFirstLevel}]">
     <template v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children">
-      <sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
-        <el-menu-item :index="resolvePath(theOnlyOneChild.path)" :class="{'submenu-title-noDropdown': isFirstLevel}" :style="{fontSize: customFontsize + 'px'}">
+      <msun-sidebar-item-link v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
+        <el-menu-item :index="resolvePath(theOnlyOneChild.path)" :class="{'submenu-title-noDropdown': isFirstLevel}" :style="{fontSize: customFontSize + 'px'}">
           <svg-icon v-if="theOnlyOneChild.meta.icon" :name="theOnlyOneChild.meta.icon"></svg-icon>
           <span v-if="theOnlyOneChild.meta.title" slot="title">
             {{ $t('route.' + theOnlyOneChild.meta.title) }}
           </span>
         </el-menu-item>
-      </sidebar-item-link>
+      </msun-sidebar-item-link>
     </template>
     <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
         <svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon"></svg-icon>
-        <span v-if="item.meta && item.meta.title" slot="title" :style="{fontSize: customFontsize + 'px'}">
+        <span v-if="item.meta && item.meta.title" slot="title" :style="{fontSize: customFontSize + 'px'}">
           {{ $t('route.' + item.meta.title) }}
         </span>
       </template>
       <template v-if="item.children">
-        <sidebar-item v-for="child in item.children" :key="child.path" :item="child" :is-collapse="isCollapse" :is-first-level="false" :base-path="resolvePath(child.path)" :style="{fontSize: customFontsize + 'px'}" class="nest-menu">
+        <sidebar-item v-for="child in item.children" :key="child.path" :item="child" :is-collapse="isCollapse" :is-first-level="false" :base-path="resolvePath(child.path)" :style="{fontSize: customFontSize + 'px'}" class="nest-menu">
         </sidebar-item>
       </template>
     </el-submenu>
@@ -35,7 +35,7 @@ export default {
   },
   props: {
     item: {
-      type: any,
+      type: Object,
       required: true
     },
     isCollapse: {
@@ -76,7 +76,7 @@ export default {
       return 0;
     },
     theOnlyOneChild() {
-      if (this.showingChildNumber() > 1) {
+      if (this.showingChildNumber > 1) {
         return null;
       }
       if (this.item.children) {

@@ -1,1 +1,3 @@
-export default isExternal = path => /^(https?:|mailto:|tel:)/.test(path);
+const isExternal = path => /^(https?:|mailto:|tel:)/.test(path);
+
+export default isExternal;

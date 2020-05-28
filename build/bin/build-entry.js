@@ -17,6 +17,8 @@ import mStore from '../shared/utils/store/index.js';
 import Http from '../shared/utils/http/index.js';
 import Convert from '../shared/utils/convert/index.js';
 import Cookie from '../shared/utils/cookie/index.js';
+import ElementUI from 'element-ui';
+import i18n from '../shared/locale/index.js';
 import '../packages/icons/components';
 import SvgIcon from 'vue-svgicon';
 import Router from 'vue-router';
@@ -30,6 +32,11 @@ const install = function(Vue) {
   components.forEach(component => {
     Vue.component(component.name, component);
   });
+
+  Vue.use(ElementUI, {
+    size: mStore.state.App.size,
+    i18n: (key, value) => i18n.t(key, value)
+  })
 
   Vue.use(SvgIcon, {
     tagName: 'svg-icon',
@@ -61,6 +68,7 @@ export default {
   Convert,
   Cookie,
   mStore,
+  i18n,
 {{list}}
 };
 `;

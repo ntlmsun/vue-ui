@@ -17,7 +17,7 @@ const pathToRegexp = require('path-to-regexp');
 
 export default {
   name: 'MsunBreadCrumb',
-  date() {
+  data() {
     return {
       breadCrumbs: []
     };
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     getBreadCrumb() {
-      let matched = this.$route.matched.filter(item => item.meta && item.mata.title);
+      let matched = this.$route.matched.filter(item => item.meta && item.meta.title);
       const first = matched[0];
       if (!this.isDashboard(first)) {
         matched = [
