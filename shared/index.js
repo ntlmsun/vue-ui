@@ -7,6 +7,7 @@ import mStore from '../shared/utils/store/index.js';
 import Http from '../shared/utils/http/index.js';
 import Convert from '../shared/utils/convert/index.js';
 import Cookie from '../shared/utils/cookie/index.js';
+import Permission from '../shared/utils/permission/permission.js';
 import ElementUI from 'element-ui';
 import i18n from '../shared/locale/index.js';
 import '../packages/icons/components';
@@ -58,6 +59,7 @@ export default {
   Convert,
   Cookie,
   mStore,
+  Permission,
   i18n,
   DefaultLayout
 };

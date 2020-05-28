@@ -5,6 +5,7 @@ import { MsunCookie } from './cookie';
 import { MsunDefaultLayout } from './default-layout';
 import { MsunHttpClient } from './http';
 import { Store } from './store';
+import { MsunPermission } from './permission';
 
 export function install(vue: typeof Vue): void;
 
@@ -28,6 +29,9 @@ export const Convert: MsunConvert;
 
 /** Http */
 export const Http: MsunHttpClient;
+
+/** permission */
+export const Permission: MsunPermission;
 
 /** Layout Component */
 export class DefaultLayout extends MsunDefaultLayout {}

@@ -1,17 +1,17 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
 import Cookie from './../utils/cookie/index';
-import msunZN from './lang/zn-CN';
+import msunZH from './lang/zh-CN';
 import msunEN from './lang/en';
-import elementZN from 'element-ui/lib/locale/lang/zh-CN';
+import elementZH from 'element-ui/lib/locale/lang/zh-CN';
 import elementEN from 'element-ui/lib/locale/lang/en';
 
 Vue.use(VueI18n);
 
 const message = {
-  zn: {
-    ...msunZN,
-    ...elementZN
+  zh: {
+    ...msunZH,
+    ...elementZH
   },
   en: {
     ...msunEN,
