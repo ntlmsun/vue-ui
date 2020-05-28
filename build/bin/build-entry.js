@@ -19,10 +19,10 @@ import Convert from '../shared/utils/convert/index.js';
 import Cookie from '../shared/utils/cookie/index.js';
 import Permission from '../shared/utils/permission/permission.js';
 import ElementUI from 'element-ui';
-import i18n from '../shared/locale/index.js';
 import '../packages/icons/components';
 import SvgIcon from 'vue-svgicon';
 import Router from 'vue-router';
+import * as directives from '../shared/directives';
 
 const components = [
 {{install}}
@@ -34,9 +34,12 @@ const install = function(Vue) {
     Vue.component(component.name, component);
   });
 
+  Object.keys(directives).forEach(key => {
+    Vue.directive(key, directives[key])
+  })
+  
   Vue.use(ElementUI, {
-    size: mStore.state.App.size,
-    i18n: (key, value) => i18n.t(key, value)
+    size: mStore.state.App.size
   })
 
   Vue.use(SvgIcon, {
@@ -70,7 +73,6 @@ export default {
   Cookie,
   mStore,
   Permission,
-  i18n,
 {{list}}
 };
 `;
@@ -97,7 +99,6 @@ ComponentNames.forEach(name => {
       component: name
     }));
   }
-
 
   if (componentName !== 'Loading') listTemplate.push(`  ${componentName}`);
 });

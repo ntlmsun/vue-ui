@@ -1,10 +1,11 @@
 var fs = require('fs');
 var path = require('path');
 var Components = require('../../components.json');
-var themes = [
-  'theme'
-];
+var themes = ['theme'];
 Components = Object.keys(Components);
+
+Components.push('icon');
+
 var basepath = path.resolve(__dirname, '../../packages/');
 
 function fileExists(filePath) {
@@ -15,11 +16,11 @@ function fileExists(filePath) {
   }
 }
 
-themes.forEach((theme) => {
+themes.forEach(theme => {
   var isSCSS = theme === 'theme';
   var indexContent = isSCSS ? '@import "./base.scss";\n' : '@import "./base.css";\n';
   Components.forEach(function(key) {
-    if (['icon', 'option', 'option-group'].indexOf(key) > -1) return;
+    if (['option', 'option-group'].indexOf(key) > -1) return;
     var fileName = key + (isSCSS ? '.scss' : '.css');
     indexContent += '@import "./' + fileName + '";\n';
     var filePath = path.resolve(basepath, theme, 'src', fileName);

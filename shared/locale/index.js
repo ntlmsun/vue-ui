@@ -1,42 +1,45 @@
+import defaultLang from 'msun-lib-ui/shared/locale/lang/zh-CN';
 import Vue from 'vue';
-import VueI18n from 'vue-i18n';
-import Cookie from './../utils/cookie/index';
-import msunZH from './lang/zh-CN';
-import msunEN from './lang/en';
-import elementZH from 'element-ui/lib/locale/lang/zh-CN';
-import elementEN from 'element-ui/lib/locale/lang/en';
+import deepmerge from 'deepmerge';
+import Format from './format';
 
-Vue.use(VueI18n);
-
-const message = {
-  zh: {
-    ...msunZH,
-    ...elementZH
-  },
-  en: {
-    ...msunEN,
-    ...elementEN
-  }
-};
-
-export const getLocale = () => {
-  const cache = Cookie.getLanguage();
-  if (cache) {
-    return cache;
-  }
-  const language = navigator.language.toLowerCase();
-  const locales = Object.keys(message);
-  for (const locale of locales) {
-    if (language.indexOf(locale) > -1) {
-      return locale;
+const format = Format(Vue);
+let lang = defaultLang;
+let merged = false;
+let i18nHandler = function() {
+  const vuei18n = Object.getPrototypeOf(this || Vue).$t;
+  if (typeof vuei18n === 'function' && !!Vue.locale) {
+    if (!merged) {
+      merged = true;
+      Vue.locale(Vue.config.lang, deepmerge(lang, Vue.locale(Vue.config.lang) || {}, { clone: true }));
     }
+    return vuei18n.apply(this, arguments);
   }
-  return 'en';
 };
 
-const i18n = new VueI18n({
-  locale: getLocale(),
-  message
-});
+export const t = function(path, options) {
+  let value = i18nHandler.apply(this, arguments);
+  if (value !== null && value !== undefined) return value;
 
-export default i18n;
+  const array = path.split('.');
+  let current = lang;
+
+  for (let i = 0, j = array.length; i < j; i++) {
+    const property = array[i];
+    value = current[property];
+    if (i === j - 1) return format(value, options);
+    if (!value) return '';
+    current = value;
+  }
+  return '';
+};
+
+export const use = function(l) {
+  lang = l || lang;
+};
+
+export const i18n = function(fn) {
+  i18nHandler = fn || i18nHandler;
+};
+
+export default { use, t, i18n };
