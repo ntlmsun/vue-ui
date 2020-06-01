@@ -2,7 +2,7 @@
   <div class="ms-tabs__active-bar" :class="`is-${ rootTabs.tabPosition }`" :style="barStyle"></div>
 </template>
 <script>
-import { arrayFind } from 'element-ui/src/utils/util';
+import { arrayFind } from 'msun-lib-ui/shared/utils/util';
 export default {
   name: 'TabBar',
 

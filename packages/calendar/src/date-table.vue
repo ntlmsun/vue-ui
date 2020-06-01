@@ -3,6 +3,8 @@ import fecha from 'msun-lib-ui/shared/utils/date';
 import { range as rangeArr, getFirstDayOfMonth, getPrevMonthLastDays, getMonthDays, getI18nSettings, validateRangeInOneMonth } from 'msun-lib-ui/shared/utils/date-util';
 
 export default {
+  name: 'DateTable',
+
   props: {
     selectedDay: String, // formated date yyyy-MM-dd
     range: {

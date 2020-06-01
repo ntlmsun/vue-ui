@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { PopupManager } from 'msun-lib-ui/shared/utils/popup';
+import { PopupManager } from 'msun-lib-ui/shared/utils/popup/index';
 
 const PopperJS = Vue.prototype.$isServer ? function() {} : require('./popper');
 const stop = e => e.stopPropagation();

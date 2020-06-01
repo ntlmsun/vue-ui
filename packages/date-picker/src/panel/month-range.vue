@@ -223,6 +223,6 @@ export default {
     }
   },
 
-  components: { MonthTable, ElInput, ElButton }
+  components: { MonthTable, MsInput, MsButton }
 };
 </script>

@@ -34,7 +34,7 @@ import MsInput from 'msun-lib-ui/packages/input';
 import MsButton from 'msun-lib-ui/packages/button';
 
 export default {
-  name: 'ms-color-picker-dropdown',
+  name: 'PickerDropdown',
 
   mixins: [Popper, Locale],
 

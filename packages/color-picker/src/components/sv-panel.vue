@@ -17,7 +17,7 @@
 import draggable from '../draggable';
 
 export default {
-  name: 'ms-sl-panel',
+  name: 'SlPanel',
 
   props: {
     color: {

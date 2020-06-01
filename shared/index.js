@@ -25,7 +25,6 @@ import CollapseItem from '../packages/collapse-item/index.js';
 import ColorPicker from '../packages/color-picker/index.js';
 import Container from '../packages/container/index.js';
 import DatePicker from '../packages/date-picker/index.js';
-import DefaultLayout from '../packages/default-layout/index.js';
 import Dialog from '../packages/dialog/index.js';
 import Divider from '../packages/divider/index.js';
 import Drawer from '../packages/drawer/index.js';
@@ -91,13 +90,12 @@ import Http from '../shared/utils/http/index.js';
 import Convert from '../shared/utils/convert/index.js';
 import Cookie from '../shared/utils/cookie/index.js';
 import Permission from '../shared/utils/permission/permission.js';
-import ElementUI from 'element-ui';
 import '../packages/icons/components';
 import SvgIcon from 'vue-svgicon';
 import Router from 'vue-router';
 import * as directives from '../shared/directives';
-import locale from 'element-ui/src/locale';
-import CollapseTransition from 'element-ui/src/transitions/collapse-transition';
+import locale from 'msun-lib-ui/shared/locale';
+import CollapseTransition from 'msun-lib-ui/shared/transitions/collapse-transition';
 
 const components = [
   Alert,
@@ -125,7 +123,6 @@ const components = [
   ColorPicker,
   Container,
   DatePicker,
-  DefaultLayout,
   Dialog,
   Divider,
   Drawer,
@@ -138,18 +135,14 @@ const components = [
   Header,
   Icon,
   Image,
-  InfiniteScroll,
   Input,
   InputNumber,
   Layout,
   Link,
-  Loading,
   Main,
   Menu,
   MenuItem,
   MenuItemGroup,
-  MessageBox,
-  Notification,
   Option,
   OptionGroup,
   PageHeader,
@@ -200,11 +193,6 @@ const install = function(Vue, opts = {}) {
 
   Vue.use(InfiniteScroll);
   Vue.use(Loading.directive);
-
-  Vue.use(ElementUI, {
-    size: mStore.state.App.size
-  })
-
   Vue.prototype.$MSUN = {
     size: opts.size || '',
     zIndex: opts.zIndex || 2000
@@ -277,7 +265,6 @@ export default {
   ColorPicker,
   Container,
   DatePicker,
-  DefaultLayout,
   Dialog,
   Divider,
   Drawer,

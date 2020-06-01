@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import MsMessage from './index.vue';
-import { PopupManager } from 'msun-lib-ui/shared/utils/popup';
+import { PopupManager } from 'msun-lib-ui/shared/utils/popup/index';
 import { isVNode } from 'msun-lib-ui/shared/utils/vdom';
 let MessageConstructor = Vue.extend(MsMessage);
 

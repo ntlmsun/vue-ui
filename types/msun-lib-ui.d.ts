@@ -92,7 +92,7 @@ export interface InstallationOptions {
   size: string;
 }
 
-/** The version of element-ui */
+/** The version of msun-lib-ui */
 export const version: string;
 
 export function install(vue: typeof Vue, options?: InstallationOptions): void;

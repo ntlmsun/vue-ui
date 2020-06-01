@@ -4,8 +4,6 @@ var Components = require('../../components.json');
 var themes = ['theme'];
 Components = Object.keys(Components);
 
-Components.push('icon');
-
 var basepath = path.resolve(__dirname, '../../packages/');
 
 function fileExists(filePath) {

@@ -42,7 +42,7 @@
 </template>
 
 <script type="text/babel">
-import Popup from 'msun-lib-ui/shared/utils/popup';
+import Popup from 'msun-lib-ui/shared/utils/popup/index';
 import Locale from 'msun-lib-ui/shared/mixins/locale';
 import MsInput from 'msun-lib-ui/packages/input';
 import MsButton from 'msun-lib-ui/packages/button';

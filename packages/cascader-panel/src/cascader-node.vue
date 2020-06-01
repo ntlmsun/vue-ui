@@ -6,6 +6,8 @@ import { isEqual } from 'msun-lib-ui/shared/utils/util';
 const stopPropagation = e => e.stopPropagation();
 
 export default {
+  name: 'MsCascaderNode',
+
   inject: ['panel'],
 
   components: {

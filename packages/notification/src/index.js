@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import MsNotification from './index.vue';
 import merge from 'msun-lib-ui/shared/utils/merge';
-import { PopupManager } from 'msun-lib-ui/shared/utils/popup';
+import { PopupManager } from 'msun-lib-ui/shared/utils/popup/index';
 import { isVNode } from 'msun-lib-ui/shared/utils/vdom';
 const NotificationConstructor = Vue.extend(MsNotification);
 

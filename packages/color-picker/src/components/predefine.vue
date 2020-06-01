@@ -13,6 +13,8 @@
 import Color from '../color';
 
 export default {
+  name: 'Predefine',
+
   props: {
     colors: { type: Array, required: true },
     color: { required: true }

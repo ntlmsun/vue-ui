@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Popup from 'msun-lib-ui/shared/utils/popup';
+import Popup from 'msun-lib-ui/shared/utils/popup/index';
 import Migrating from 'msun-lib-ui/shared/mixins/migrating';
 import emitter from 'msun-lib-ui/shared/mixins/emitter';
 

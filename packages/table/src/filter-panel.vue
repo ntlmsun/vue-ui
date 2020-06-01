@@ -24,7 +24,7 @@
 
 <script type="text/babel">
 import Popper from 'msun-lib-ui/shared/utils/vue-popper';
-import { PopupManager } from 'msun-lib-ui/shared/utils/popup';
+import { PopupManager } from 'msun-lib-ui/shared/utils/popup/index';
 import Locale from 'msun-lib-ui/shared/mixins/locale';
 import Clickoutside from 'msun-lib-ui/shared/utils/clickoutside';
 import Dropdown from './dropdown';

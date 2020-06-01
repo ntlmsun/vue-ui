@@ -15,7 +15,10 @@ import Emitter from 'msun-lib-ui/shared/mixins/emitter';
 import MsScrollbar from 'msun-lib-ui/packages/scrollbar';
 
 export default {
+  name: 'MsAutocompleteSuggestions',
+
   components: { MsScrollbar },
+
   mixins: [Popper, Emitter],
 
   componentName: 'MsAutocompleteSuggestions',

@@ -11,7 +11,7 @@
 import draggable from '../draggable';
 
 export default {
-  name: 'ms-color-alpha-slider',
+  name: 'AlphaSlider',
 
   props: {
     color: {

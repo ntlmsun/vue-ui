@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Popup from 'msun-lib-ui/shared/utils/popup';
+import Popup from 'msun-lib-ui/shared/utils/popup/index';
 import emitter from 'msun-lib-ui/shared/mixins/emitter';
 import Utils from 'msun-lib-ui/shared/utils/aria-utils';
 

@@ -304,7 +304,7 @@ export default {
     }
   },
 
-  components: { ElInput },
+  components: { MsInput },
 
   directives: { Clickoutside },
 

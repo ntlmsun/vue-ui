@@ -10,7 +10,7 @@
 import draggable from '../draggable';
 
 export default {
-  name: 'ms-color-hue-slider',
+  name: 'HueSlider',
 
   props: {
     color: {

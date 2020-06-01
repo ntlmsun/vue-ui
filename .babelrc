@@ -31,7 +31,7 @@
         ["module-resolver", {
           "root": ["msun-lib-ui"],
           "alias": {
-            "msun-lib-ui/src": "msun-lib-ui/lib"
+            "msun-lib-ui/shared": "msun-lib-ui/lib"
           }
         }]
       ]

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import MsLoading from './loading.vue';
 import { addClass, removeClass, getStyle } from 'msun-lib-ui/shared/utils/dom';
-import { PopupManager } from 'msun-lib-ui/shared/utils/popup';
+import { PopupManager } from 'msun-lib-ui/shared/utils/popup/index';
 import afterLeave from 'msun-lib-ui/shared/utils/after-leave';
 const Mask = Vue.extend(MsLoading);
 
