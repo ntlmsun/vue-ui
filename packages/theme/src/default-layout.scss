@@ -1,5 +1,5 @@
-@import './common/variables.scss';
-@import './common/mixins.scss';
+@import './common/var.scss';
+@import './mixins/mixins.scss';
 
 $layout-prefix: 'msun-default-layout';
 
@@ -24,13 +24,13 @@ $layout-prefix: 'msun-default-layout';
   &-main-container {
     min-height: 100%;
     transition: margin-left 0.28s;
-    margin-left: $sidebar-width;
+    margin-left: $--sidebar-width;
     position: relative;
   }
 
   &-sidebar-container {
     transition: width 0.28s;
-    width: $sidebar-width !important;
+    width: $--sidebar-width !important;
     height: 100%;
     position: fixed;
     font-size: 0px;
@@ -46,7 +46,7 @@ $layout-prefix: 'msun-default-layout';
     top: 0;
     right: 0;
     z-index: 9;
-    width: calc(100% - #{$sidebar-width});
+    width: calc(100% - #{$--sidebar-width});
     transition: width 0.28s;
   }
 
@@ -72,7 +72,7 @@ $layout-prefix: 'msun-default-layout';
 
     .#{$layout-prefix}-sidebar-container {
       transition: transform 0.28s;
-      width: $sidebar-width !important;
+      width: $--sidebar-width !important;
     }
 
     &.#{$layout-prefix}-open-sidebar {
@@ -84,7 +84,7 @@ $layout-prefix: 'msun-default-layout';
       .#{$layout-prefix}-sidebar-container {
         pointer-events: none;
         transition-duration: 0.3s;
-        transform: translate3d(-$sidebar-width, 0, 0);
+        transform: translate3d(-$--sidebar-width, 0, 0);
       }
     }
 
@@ -213,20 +213,20 @@ $layout-prefix: 'msun-default-layout';
         line-height: 25px;
         margin-top: -5px;
         button {
-          padding: $layout-gutter $layout-gutter + 2px;
+          padding: $--layout-gutter $--layout-gutter + 2px;
         }
       }
       &_title {
-        font-size: $font-size;
+        font-size: $--font-size-medium;
         color: #333;
         font-weight: bold;
-        padding-right: $layout-gutter;
+        padding-right: $--layout-gutter;
       }
       &_span_right {
-        padding-right: $layout-gutter + 2px;
+        padding-right: $--layout-gutter + 2px;
       }
       &_right {
-        padding: $layout-gutter * 2;
+        padding: $--layout-gutter * 2;
       }
     }
     .msun-hamburger {

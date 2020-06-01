@@ -46,4 +46,5 @@ exports.vue = {
   amd: 'vue'
 };
 
-exports.jsexclude = /node_modules/;
+exports.jsexclude = /node_modules|utils\/popper\.js|utils\/date\.js/;
+

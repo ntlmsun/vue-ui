@@ -3,7 +3,7 @@
     "ga": true,
     "chrome": true
   },
-  "plugins": ["html", "json"],
+  "plugins": ["vue", "html", "json"],
   "extends": "elemefe",
   "rules": {
     "no-undef": "off",

@@ -1,0 +1,198 @@
+@import '../mixins/mixins';
+@import '../common/var';
+@import '../common/transition';
+
+@include b(date-editor) {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+
+  &.ms-input,
+  &.ms-input__inner {
+    width: 220px;
+  }
+
+  @include m((monthrange)) {
+    &.ms-input,
+    &.ms-input__inner {
+      width: 300px;
+    }
+  }
+
+  @include m((daterange, timerange)) {
+    &.ms-input,
+    &.ms-input__inner {
+      width: 350px;
+    }
+  }
+
+  @include m(datetimerange) {
+    &.ms-input,
+    &.ms-input__inner {
+      width: 400px;
+    }
+  }
+
+  @include m(dates) {
+    .ms-input__inner {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .ms-icon-circle-close {
+    cursor: pointer;
+  }
+
+  .ms-range__icon {
+    font-size: 14px;
+    margin-left: -5px;
+    color: $--color-text-placeholder;
+    float: left;
+    line-height: 32px;
+  }
+
+  .ms-range-input {
+    appearance: none;
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 39%;
+    text-align: center;
+    font-size: $--font-size-base;
+    color: $--color-text-regular;
+
+    &::placeholder {
+      color: $--color-text-placeholder;
+    }
+  }
+
+  .ms-range-separator {
+    display: inline-block;
+    height: 100%;
+    padding: 0 5px;
+    margin: 0;
+    text-align: center;
+    line-height: 32px;
+    font-size: 14px;
+    width: 5%;
+    color: $--color-text-primary;
+  }
+
+  .ms-range__close-icon {
+    font-size: 14px;
+    color: $--color-text-placeholder;
+    width: 25px;
+    float: right;
+    display: inline-block;
+    line-height: 32px;
+  }
+}
+
+@include b(range-editor) {
+  &.ms-input__inner {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+  }
+
+  .ms-range-input {
+    line-height: 1;
+  }
+
+  @include when(active) {
+    border-color: $--color-primary;
+
+    &:hover {
+      border-color: $--color-primary;
+    }
+  }
+
+  @include m(medium) {
+    &.ms-input__inner {
+      height: $--input-medium-height;
+    }
+
+    .ms-range-separator {
+      line-height: 28px;
+      font-size: $--input-medium-font-size;
+    }
+
+    .ms-range-input {
+      font-size: $--input-medium-font-size;
+    }
+
+    .ms-range__icon,
+    .ms-range__close-icon {
+      line-height: 28px;
+    }
+  }
+
+  @include m(small) {
+    &.ms-input__inner {
+      height: $--input-small-height;
+    }
+
+    .ms-range-separator {
+      line-height: 24px;
+      font-size: $--input-small-font-size;
+    }
+
+    .ms-range-input {
+      font-size: $--input-small-font-size;
+    }
+
+    .ms-range__icon,
+    .ms-range__close-icon {
+      line-height: 24px;
+    }
+  }
+
+  @include m(mini) {
+    &.ms-input__inner {
+      height: $--input-mini-height;
+    }
+
+    .ms-range-separator {
+      line-height: 20px;
+      font-size: $--input-mini-font-size;
+    }
+
+    .ms-range-input {
+      font-size: $--input-mini-font-size;
+    }
+
+    .ms-range__icon,
+    .ms-range__close-icon {
+      line-height: 20px;
+    }
+  }
+
+  @include when(disabled) {
+    background-color: $--input-disabled-fill;
+    border-color: $--input-disabled-border;
+    color: $--input-disabled-color;
+    cursor: not-allowed;
+
+    &:hover,
+    &:focus {
+      border-color: $--input-disabled-border;
+    }
+
+    input {
+      background-color: $--input-disabled-fill;
+      color: $--input-disabled-color;
+      cursor: not-allowed;
+      &::placeholder {
+        color: $--input-disabled-placeholder-color;
+      }
+    }
+
+    .ms-range-separator {
+      color: $--input-disabled-color;
+    }
+  }
+}

@@ -1,13 +1,33 @@
 import Cookie from 'msun-lib-ui/shared/utils/cookie/index';
 
+/**
+ * @description 应用信息, 配置当前应用信息
+ * @param sidebar 侧边栏
+ * @param layout => theme-top-layout | theme-left-layout 排版设置
+ * @param title  => 应用标题
+ * @param device => Desktop | Mobile 显示模式
+ * @param language => zh-CN 语言
+ * @param size medium | small | mini 大小尺寸
+ * @param customFontSize 自定义字体大小
+ * @function ToggleSideBar 侧边栏属性
+ * @function CloseSideBar 关闭侧边栏
+ * @function SetLayout 设置布局
+ * @function SetTitle 设置标签
+ * @function ToggleDevice 设置显示模式
+ * @function SetLanguage 设置语言
+ * @function SetSize 设置布局大小
+ * @function SetFontSize 设置字体大小
+ */
 const App = {
   state: {
     sidebar: {
       opened: Cookie.getSidebarStatus() !== 'closed',
       withoutAnimation: false
     },
+    layout: 'theme-top-layout',
+    title: '',
     device: 'Desktop',
-    language: 'zn-CN',
+    language: 'zh-CN',
     size: Cookie.getSize() || 'medium',
     customFontSize: Number(Cookie.getFontSize()) || 16
   },
@@ -25,6 +45,12 @@ const App = {
       state.sidebar.opened = false;
       state.sidebar.withoutAnimation = withoutAnimation;
       Cookie.setSidebarStatus('closed');
+    },
+    SET_LAYOUT(state, { layout } = option) {
+      state.layout = layout;
+    },
+    SET_TITLE(state, { title } = option) {
+      state.title = title
     },
     TOGGLE_DEVICE(state, { device } = option) {
       state.device = device;
@@ -48,6 +74,12 @@ const App = {
     },
     CloseSideBar(content, { withoutAnimation } = option) {
       content.commit('CLOSE_SIDEBAR', { withoutAnimation: withoutAnimation });
+    },
+    SetLayout(content, { layout } = option) {
+      content.commit('SET_LAYOUT', { layout: layout })
+    },
+    SetTitle(content, { title } = option) {
+      content.commit('SET_TITLE', { title: title })
     },
     ToggleDevice(content, { device } = option) {
       content.commit('TOGGLE_DEVICE', { device: device });
