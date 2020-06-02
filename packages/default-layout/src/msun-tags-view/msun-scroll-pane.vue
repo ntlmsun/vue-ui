@@ -1,13 +1,17 @@
 <template>
-  <el-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="ntScroll">
+  <ms-scrollbar ref="scrollContainer" :vertical="false" class="scroll-container" @wheel.native.prevent="ntScroll">
     <slot></slot>
-  </el-scrollbar>
+  </ms-scrollbar>
 </template>
 <script>
+import MsScrollbar from 'msun-lib-ui/packages/scrollbar';
 const tagSpacing = 4;
 
 export default {
   name: 'MsunScrollPane',
+  components: {
+    MsScrollbar
+  },
   methods: {
     ntScroll(e) {
       const eventDelta = e.wheelDelta || -e.delta.Y * 40;

@@ -193,6 +193,9 @@ export class Container extends MsContainer {}
 /** Date Picker Component */
 export class DatePicker extends MsDatePicker {}
 
+/** Layout Component */
+export class DefaultLayout extends MsunDefaultLayout {}
+
 /** Dialog Component */
 export class Dialog extends MsDialog {}
 
@@ -357,6 +360,3 @@ export class Tree<K = any, D = TreeData> extends MsTree<K, D> {}
 
 /** Upload Component */
 export class Upload extends MsUpload {}
-
-/** Layout Component */
-export class DefaultLayout extends MsunDefaultLayout {}

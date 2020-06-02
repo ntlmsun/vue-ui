@@ -6,20 +6,20 @@
       <template v-if="device !== 'Mobile'">
         <msun-error-log class="msun-error-container right-menu-item msun-hover-effect"></msun-error-log>
       </template>
-      <el-dropdown class="msun-avatar-container right-menu-item msun-hover-effect" trigger="click">
+      <ms-dropdown class="msun-avatar-container right-menu-item msun-hover-effect" trigger="click">
         <div class="msun-avatar-wrapper">
           <img :src="avator" class="msun-user-avatar">
-          <i class="el-icon-caret-bottom" />
+          <i class="ms-icon-caret-bottom" />
         </div>
-        <el-dropdown-menu slot="dropdown">
+        <ms-dropdown-menu slot="dropdown">
           <router-link to="/">
-            <el-dropdown-item>{{ $t("navbar.dashboard") }}</el-dropdown-item>
+            <ms-dropdown-item>{{ $t("navbar.dashboard") }}</ms-dropdown-item>
           </router-link>
-          <el-dropdown-item divided @click.native="logout">
-            <span class="msun-dropdown-status">{{ $t("navbar.logOut") }}</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+          <ms-dropdown-item divided @click.native="logout">
+            <span class="msun-dropdown-status">{{ t("navbar.logOut") }}</span>
+          </ms-dropdown-item>
+        </ms-dropdown-menu>
+      </ms-dropdown>
     </div>
   </div>
 </template>
@@ -27,9 +27,15 @@
 import MsunHamburger from './msun-hamburger.vue';
 import MsunBreadCrumb from './msun-bread-crumb.vue';
 import MsunErrorLog from './msun-error-log.vue';
+import MsDropdown from 'msun-lib-ui/packages/dropdown';
+import MsDropdownMenu from 'msun-lib-ui/packages/dropdown-menu';
+import MsDropdownItem from 'msun-lib-ui/packages/dropdown-item';
+import { t } from 'msun-lib-ui/shared/locale';
+import Locale from 'msun-lib-ui/shared/mixins/locale';
 
 export default {
   name: 'MsunNavbar',
+  mixins: [Locale],
   data() {
     return {
       avator: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
@@ -38,7 +44,10 @@ export default {
   components: {
     MsunHamburger,
     MsunBreadCrumb,
-    MsunErrorLog
+    MsunErrorLog,
+    MsDropdown,
+    MsDropdownMenu,
+    MsDropdownItem
   },
   computed: {
     sidebar() {

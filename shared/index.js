@@ -25,6 +25,7 @@ import CollapseItem from '../packages/collapse-item/index.js';
 import ColorPicker from '../packages/color-picker/index.js';
 import Container from '../packages/container/index.js';
 import DatePicker from '../packages/date-picker/index.js';
+import DefaultLayout from '../packages/default-layout/index.js';
 import Dialog from '../packages/dialog/index.js';
 import Divider from '../packages/divider/index.js';
 import Drawer from '../packages/drawer/index.js';
@@ -123,6 +124,7 @@ const components = [
   ColorPicker,
   Container,
   DatePicker,
+  DefaultLayout,
   Dialog,
   Divider,
   Drawer,
@@ -229,7 +231,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.0.5-beta.0.1',
+  version: '0.0.5-beta.0.2',
   locale: locale.use,
   i18n: locale.i18n,
   install,
@@ -265,6 +267,7 @@ export default {
   ColorPicker,
   Container,
   DatePicker,
+  DefaultLayout,
   Dialog,
   Divider,
   Drawer,

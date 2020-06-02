@@ -1,6 +1,6 @@
 {
   "name": "msun-lib-ui",
-  "version": "0.0.5-beta.0.1",
+  "version": "0.0.5-beta.0.2",
   "description": "A Component Library for Vue.js.",
   "main": "lib/msun-lib-ui.common.js",
   "files": [
@@ -12,8 +12,8 @@
   "typings": "types/index.d.ts",
   "scripts": {
     "bootstrap": "yarn || npm i",
-    "build:file": "node build/bin/build-entry.js",
-    "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme/gulpfile.js && cp-cli packages/theme/src lib/styles",
+    "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js",
+    "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme/gulpfile.js && cp-cli packages/theme/lib lib/theme",
     "build:utils": "cross-env BABEL_ENV=utils babel shared --out-dir lib --ignore shared/index.js",
     "build:umd": "node build/bin/build-locale.js",
     "clean": "rimraf lib && rimraf packages/*/lib",

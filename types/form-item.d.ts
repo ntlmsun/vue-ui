@@ -2,7 +2,7 @@ import { MsunUIComponent, MsunUIComponentSize } from './component';
 
 /** FormItem Component */
 export declare class MsFormItem extends MsunUIComponent {
-  /** A key of `model` of the enclosing `el-form` component */
+  /** A key of `model` of the enclosing `ms-form` component */
   prop: string;
 
   /** Label */

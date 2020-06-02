@@ -194,7 +194,7 @@ $layout-prefix: 'msun-default-layout';
             border-radius: 10px;
           }
 
-          .el-icon-caret-bottom {
+          .ms-icon-caret-bottom {
             cursor: pointer;
             position: absolute;
             right: -20px;
@@ -237,12 +237,12 @@ $layout-prefix: 'msun-default-layout';
         vertical-align: middle !important;
       }
     }
-    .el-breadcrumb__inner,
-    .el-breadcrumb__inner a {
+    .ms-breadcrumb__inner,
+    .ms-breadcrumb__inner a {
       font-weight: 400 !important;
     }
 
-    .msun-bread-crumb.el-breadcrumb {
+    .msun-bread-crumb.ms-breadcrumb {
       display: inline-block;
       font-size: 14px;
       line-height: 50px;
@@ -264,11 +264,11 @@ $layout-prefix: 'msun-default-layout';
       overflow-x: hidden !important;
     }
 
-    .el-scrollbar__view {
+    .ms-scrollbar__view {
       height: 100%;
     }
 
-    .el-scrollbar__bar {
+    .ms-scrollbar__bar {
       &.is-vertical {
         right: 0px;
       }
@@ -319,8 +319,8 @@ $layout-prefix: 'msun-default-layout';
   }
 
   &-full-mode {
-    .nest-menu .el-submenu>.el-submenu__title,
-    .el-submenu .el-menu-item {
+    .nest-menu .ms-submenu>.ms-submenu__title,
+    .ms-submenu .ms-menu-item {
       min-width: 210px !important;
       background-color: #1f2d3d !important;
   
@@ -336,18 +336,18 @@ $layout-prefix: 'msun-default-layout';
         padding: 0 !important;
         position: relative;
   
-        .el-tooltip {
+        .ms-tooltip {
           padding: 0 !important;
         }
       }
   
-      .el-submenu {
+      .ms-submenu {
         overflow: hidden;
   
-        &>.el-submenu__title {
+        &>.ms-submenu__title {
           padding: 0px !important;
   
-          .el-submenu__icon-arrow {
+          .ms-submenu__icon-arrow {
             display: none;
           }
   
@@ -363,22 +363,22 @@ $layout-prefix: 'msun-default-layout';
   }
 }
 
-.el-scrollbar {
+.ms-scrollbar {
   height: 100%;
 }
 
 .has-logo {
-  .el-scrollbar {
+  .ms-scrollbar {
     height: calc(100% - 50px);
   }
 }
 
-.el-menu {
+.ms-menu {
   border: none;
   height: 100%;
   width: 100% !important;
 }
 
-.el-submenu.is-active > .el-submenu__title {
+.ms-submenu.is-active > .ms-submenu__title {
   color: #f4f4f5 !important;
 }

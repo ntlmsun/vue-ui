@@ -2,28 +2,30 @@
   <div id="tags-view-container" class="tags-view-container">
     <msun-scroll-pane ref="scrollPane" class="tags-view-wrapper">
       <router-link v-for="tag in visitedViews" ref="tag" :key="tag.path" :class="isActive(tag) ? 'active' : ''" :style="{fontSize: customFontSize + 'px'}" :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}" tag="span" class="tags-view-item" @click.middle.native="!isAffix(tag)?closeSelectedTag(tag):''" @contextmenu.prevent.native="openMenu(tag, $event)">
-        {{ $t('route.' + tag.meta.title) }}
-        <span v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
+        {{ t('route.' + tag.meta.title) }}
+        <span v-if="!isAffix(tag)" class="ms-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
       </router-link>
     </msun-scroll-pane>
-    <ul v-show="visible" :style="{left: left+'px', top: top+'px'}" class="contextmenu">
+    <ul v-show="visible" :style="{left: left + 'px', top: top + 'px'}" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">
-        {{ $t('tagsView.refresh') }}
+        {{ t('tagsView.refresh') }}
       </li>
       <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
-        {{ $t('tagsView.close') }}
+        {{ t('tagsView.close') }}
       </li>
       <li @click="closeOthersTags">
-        {{ $t('tagsView.closeOthers') }}
+        {{ t('tagsView.closeOthers') }}
       </li>
       <li @click="closeAllTags(selectedTag)">
-        {{ $t('tagsView.closeAll') }}
+        {{ t('tagsView.closeAll') }}
       </li>
     </ul>
   </div>
 </template>
 <script>
 import MsunScrollPane from './msun-scroll-pane.vue';
+import { t } from 'msun-lib-ui/shared/locale';
+import Locale from 'msun-lib-ui/shared/mixins/locale';
 import path from 'path';
 
 export default {
@@ -31,6 +33,7 @@ export default {
   components: {
     MsunScrollPane
   },
+  mixins: [Locale],
   data() {
     return {
       visible: false,

@@ -1,22 +1,26 @@
 <template>
   <div :class="{'has-logo': showLogo}">
     <msun-sidebar-logo v-if="showLogo" :collapse="isCollapse"></msun-sidebar-logo>
-    <el-scrollbar wrap-class="scrollbar-wrapper">
-      <el-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBackground" :text-color="variables.menuText" :active-text-color="menuActiveTextColor" :unique-opened="false" :collapse-transition="false" mode="vertical">
+    <ms-scrollbar wrap-class="scrollbar-wrapper">
+      <ms-menu :default-active="activeMenu" :collapse="isCollapse" :background-color="variables.menuBackground" :text-color="variables.menuText" :active-text-color="menuActiveTextColor" :unique-opened="false" :collapse-transition="false" mode="vertical">
         <msun-sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" :is-collapse="isCollapse"></msun-sidebar-item>
-      </el-menu>
-    </el-scrollbar>
+      </ms-menu>
+    </ms-scrollbar>
   </div>
 </template>
 <script>
 import MsunSidebarItem from './msun-sidebar-item.vue';
 import MsunSidebarLogo from './msun-sidebar-logo.vue';
+import MsScrollbar from 'msun-lib-ui/packages/scrollbar';
+import MsMenu from 'msun-lib-ui/packages/menu';
 
 export default {
   name: 'MsunSidebar',
   components: {
     MsunSidebarItem,
-    MsunSidebarLogo
+    MsunSidebarLogo,
+    MsScrollbar,
+    MsMenu
   },
   computed: {
     sidebar() {

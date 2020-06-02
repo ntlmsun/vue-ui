@@ -2,11 +2,11 @@
   <div
     v-bind="data.attrs"
     v-on="listeners"
-    :class="[data.staticClass, 'el-divider', `el-divider--${props.direction}`]"
+    :class="[data.staticClass, 'ms-divider', `ms-divider--${props.direction}`]"
   >
     <div
       v-if="slots().default && props.direction !== 'vertical'"
-      :class="['el-divider__text', `is-${props.contentPosition}`]"
+      :class="['ms-divider__text', `is-${props.contentPosition}`]"
      >
       <slot />
     </div>
