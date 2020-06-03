@@ -16,6 +16,7 @@ examples/pages/en-US
 examples/pages/zh-CN
 examples/pages/es
 examples/pages/fr-FR
+packages/icons/components
 fe.msun-lib/msun-lib-ui
 .npmrc
 coverage
