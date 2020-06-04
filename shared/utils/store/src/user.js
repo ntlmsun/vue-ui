@@ -1,5 +1,16 @@
 import Cookie from 'msun-lib-ui/shared/utils/cookie/index';
 
+/**
+ * @description 用户信息管理
+ * @param token => Cookie.getToken() || null
+ * @param userId => 用户编码
+ * @param userName => 用户名称
+ * @param deptId => 科室编码
+ * @param deptName => 科室名称
+ * @param hospitalId => 医院编码
+ * @param hospitalName => 医院名称
+ * @param deptSysId
+ */
 const User = {
   state: {
     token: Cookie.getToken() || null,

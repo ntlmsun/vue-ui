@@ -5,7 +5,7 @@
         <ms-menu-item :index="resolvePath(theOnlyOneChild.path)" :class="{'submenu-title-noDropdown': isFirstLevel}" :style="{fontSize: customFontSize + 'px'}">
           <svg-icon v-if="theOnlyOneChild.meta.icon" :name="theOnlyOneChild.meta.icon"></svg-icon>
           <span v-if="theOnlyOneChild.meta.title" slot="title">
-            {{ $t('route.' + theOnlyOneChild.meta.title) }}
+            {{ t('route.' + theOnlyOneChild.meta.title) }}
           </span>
         </ms-menu-item>
       </msun-sidebar-item-link>

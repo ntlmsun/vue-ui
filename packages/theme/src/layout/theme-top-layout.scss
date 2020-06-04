@@ -1,0 +1,157 @@
+@import '../common/var';
+@import '../mixins/mixins';
+
+@include b(layout-left) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: $--layout-header;
+  background-color: $--color-primary;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  z-index: 19;
+
+  @include e(top__header) {
+    height: 100%;
+    width: $--layout-sidebar;
+    padding: 0 $--layout-gutter * 2;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    background-color: $--color-primary-dark;
+
+    img {
+      width: 48px;
+      height: 48px;
+    }
+
+    span {
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: $--layout-default-color;
+      padding: 0 $--layout-gutter;
+      font-size: 28px;
+    }
+  }
+
+  @include e(top__content) {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+
+  @include e(nav) {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: inline-block;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+  }
+
+  @include e(svg-icon) {
+    color: $--layout-default-color !important;
+    padding: 0 $--layout-gutter * 2 !important;
+    vertical-align: middle;
+  }
+
+  @include e(search) {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin: 0;
+    .ms-input-group {
+      width: 30%;
+    }
+    .ms-input-group--append .ms-input__inner {
+      border-radius: 0;
+    }
+    .ms-input--medium .ms-input__inner {
+      height: 32px;
+      line-height: 32px;
+    }
+    .ms-input-group__append {
+      background-color: $--color-primary-dark;
+      border-radius: 0;
+      border-color: $--color-primary-dark;
+      color: $--layout-default-color;
+      padding: 0 16px;
+
+      span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @include e(remind) {
+    .ms-badge__content {
+      height: 16px;
+      line-height: 16px;
+      border: none;
+      &.is-fixed {
+        top: 5px;
+        right: 35px;
+      }
+    }
+  }
+
+  @include e(content) {
+    position: fixed;
+    top: $--layout-header;
+    left: 0;
+    right: 0;
+    height: calc(100vh - #{$--layout-header});
+    overflow: auto;
+    overflow-x: hidden;
+  }
+
+  @include e(avatar) {
+    padding: 0 16px;
+  }
+
+  @include e(avatar__dropdown) {
+    display: flex;
+    height: 40px;
+    line-height: 20px;
+    color: $--layout-default-color;
+    .ms-avatar {
+      margin-right: $--layout-gutter;
+    }
+  }
+
+  @include e(active) {
+    transform: rotate(180deg);
+  }
+
+  @include e(workbench__icon) {
+    vertical-align: middle;
+  }
+
+  @include e(row) {
+    padding: $--layout-gutter * 2;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include e(col) {
+    padding: $--layout-gutter * 2 0;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    small {
+      display: block;
+      padding-top: 8px;
+      color: #9c9c9c;
+      font-size: 14px;
+    }
+  }
+}

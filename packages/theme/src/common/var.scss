@@ -1,7 +1,14 @@
 /* MSUN Chalk Variables */
 
-/** gutter */
+/** layout */
+/** layout 头部高度 */
+$--layout-header: 64px;
+/** layout 侧边栏宽度 */
+$--layout-sidebar: 250px;
+/** layout 栅格大小 */
 $--layout-gutter: 8px;
+/** 默认颜色 */
+$--layout-default-color: #fff !default;
 $--sidebar-width: 210px;
 
 /* Transition
@@ -17,6 +24,8 @@ $--color-transition-base: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !defau
 -------------------------- */
 /// color|1|Brand Color|0
 $--color-primary: #409eff !default;
+/** color|1|Brand Color|0 dark */
+$--color-primary-dark: #0b7fea !default;
 /// color|1|Background Color|4
 $--color-white: #ffffff !default;
 /// color|1|Background Color|4

@@ -10,7 +10,7 @@ import User from './src/user';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const mStore = new Vuex.Store({
   state: {},
   mutations: {},
   actions: {},
@@ -24,3 +24,5 @@ export default new Vuex.Store({
     User: User
   }
 });
+
+export default mStore;

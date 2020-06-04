@@ -43,6 +43,7 @@ import { MsImage } from './image';
 import { MsInfiniteScroll } from './infinite-scroll';
 import { MsInput } from './input';
 import { MsInputNumber } from './input-number';
+import { MsLayout } from './layout';
 import { MsLink } from './link';
 import { MsLoading } from './loading';
 import { MsMain } from './main';
@@ -240,6 +241,9 @@ export class Input extends MsInput {}
 
 /** Input Number Component */
 export class InputNumber extends MsInputNumber {}
+
+/** Layout Component */
+export class Layout extends MsLayout {}
 
 /** Link Component */
 export class Link extends MsLink {}
