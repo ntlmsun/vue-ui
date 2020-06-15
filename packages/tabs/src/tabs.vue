@@ -57,7 +57,7 @@ export default {
   methods: {
     calcPaneInstances(isForceUpdate = false) {
       if (this.$slots.default) {
-        const paneSlots = this.$slots.default.filter(vnode => vnode.tag && vnode.componentOptions && vnode.componentOptions.Ctor.options.name === 'ElTabPane');
+        const paneSlots = this.$slots.default.filter(vnode => vnode.tag && vnode.componentOptions && vnode.componentOptions.Ctor.options.name === 'MsTabPane');
         // update indeed
         const panes = paneSlots.map(({ componentInstance }) => componentInstance);
         const panesChanged = !(panes.length === this.panes.length && panes.every((pane, index) => pane === this.panes[index]));

@@ -26,6 +26,7 @@
 import MsunScrollPane from './msun-scroll-pane.vue';
 import { t } from 'msun-lib-ui/shared/locale';
 import Locale from 'msun-lib-ui/shared/mixins/locale';
+import mStore from 'msun-lib-ui/shared/utils/store';
 import path from 'path';
 
 export default {
@@ -45,13 +46,13 @@ export default {
   },
   computed: {
     customFontSize() {
-      return (this.$mStore.state.App.customFontSize / 24) * 16;
+      return (mStore.state.App.customFontSize / 24) * 16;
     },
     visitedViews() {
-      return this.$mStore.state.TagsView.visitedViews;
+      return mStore.state.TagsView.visitedViews;
     },
     routes() {
-      return this.$mStore.state.Route.routes;
+      return mStore.state.Route.routes;
     }
   },
   watch: {
@@ -66,6 +67,10 @@ export default {
         document.body.removeEventListener('click', this.closeMenu());
       }
     }
+  },
+  mounted() {
+    this.initTags();
+    this.addTags();
   },
   methods: {
     isActive(route) {
@@ -99,25 +104,25 @@ export default {
       this.affixTags = this.filterAffixTags(this.routes);
       for (const tag of this.affixTags) {
         if (tag.name) {
-          TagsViewModule.addVisitedView(tag);
+          mStore.dispatch('AddVisitedView', { view: tag });
         }
       }
     },
     addTags() {
       const { name } = this.$route;
       if (name) {
-        TagsViewModule.addView(this.$route);
+        mStore.dispatch('AddView', { view: this.$route });
       }
       return false;
     },
     moveToCurrentTag() {
-      const tags = this.$refs.tag;
+      const tags = this.$refs.tag || [];
       this.$nextTick(() => {
-        for (const tag of tags) {
-          if (tag.to.path === this.$route.path) {
-            this.$refs.scrollPane.moveToTarget(tag);
-            if (tag.to.fullPath !== this.$route.fullPath) {
-              TagsViewModule.updateVisitedView(this.$route);
+        for (let i = 0; i < tags.length; i++) {
+          if (tags[i].to.path === this.$route.path) {
+            this.$refs.scrollPane.ntMoveToTarget(tags[i]);
+            if (tags[i].to.fullPath !== this.$route.fullPath) {
+              mStore.dispatch('UpdateVisitedView', { view: this.$route });
             }
             break;
           }
@@ -125,7 +130,7 @@ export default {
       });
     },
     refreshSelectedTag(view) {
-      TagsViewModule.delCachedView(view);
+      mStore.dispatch('DelCachedView', { view: view });
       const { fullPath } = view;
       this.$nextTick(() => {
         this.$router.replace({
@@ -134,22 +139,22 @@ export default {
       });
     },
     closeSelectedTag(view) {
-      TagsViewModule.delView(view);
+      mStore.dispatch('DelView', { view: view });
       if (this.isActive(view)) {
-        this.toLastView(TagsViewModule.visitedViews, view);
+        this.toLastView(mStore.state.TagsView.visitedViews, view);
       }
     },
     closeOthersTags() {
       this.$router.push(this.selectedTag);
-      TagsViewModule.delOthersViews(this.selectedTag);
+      mStore.dispatch('DelOthersViews', { view: this.selectedTag });
       this.moveToCurrentTag();
     },
     closeAllTags(view) {
-      TagsViewModule.delAllViews();
+      mStore.dispatch('DelAllViews');
       if (this.affixTags.some(tag => tag.path === this.$route.path)) {
         return;
       }
-      this.toLastView(TagsViewModule.visitedViews, view);
+      this.toLastView(mStore.state.TagsView.visitedViews, view);
     },
     toLastView(visitedViews, view) {
       const latestView = visitedViews.slice(-1)[0];

@@ -2,7 +2,7 @@
   <li>
     <ms-dropdown trigger="click" size="mini" placement="bottom">
       <span>
-        <svg-icon class="ms-layout-left__svg-icon" name="workbench" width="62" height="30"></svg-icon>
+        <svg-icon class="ms-layout-left__svg-icon" name="workbench" width="62" height="60"></svg-icon>
       </span>
       <ms-dropdown-menu slot="dropdown">
         <ms-row class="ms-layout-left__row">

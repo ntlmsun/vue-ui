@@ -1,6 +1,6 @@
 <template>
   <li v-if="!isDesktop" @click="toHomeView">
-    <svg-icon class="ms-layout-left__svg-icon" name="desktop" width="62" height="30"></svg-icon>
+    <svg-icon class="ms-layout-left__svg-icon" name="desktop" width="62" height="60"></svg-icon>
   </li>
 </template>
 <script>

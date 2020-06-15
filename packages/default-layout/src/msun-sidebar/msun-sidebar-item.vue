@@ -18,8 +18,8 @@
         </span>
       </template>
       <template v-if="item.children">
-        <sidebar-item v-for="child in item.children" :key="child.path" :item="child" :is-collapse="isCollapse" :is-first-level="false" :base-path="resolvePath(child.path)" :style="{fontSize: customFontSize + 'px'}" class="nest-menu">
-        </sidebar-item>
+        <msun-sidebar-item v-for="child in item.children" :key="child.path" :item="child" :is-collapse="isCollapse" :is-first-level="false" :base-path="resolvePath(child.path)" :style="{fontSize: customFontSize + 'px'}" class="nest-menu">
+        </msun-sidebar-item>
       </template>
     </ms-submenu>
   </div>
@@ -34,6 +34,7 @@ import { t } from 'msun-lib-ui/shared/locale';
 import Locale from 'msun-lib-ui/shared/mixins/locale';
 
 export default {
+  name: 'msun-sidebar-item',
   components: {
     MsunSidebarItemLink,
     MsMenuItem,

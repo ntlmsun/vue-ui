@@ -348,7 +348,7 @@ export default {
     });
 
     this.$on('tree-node-drag-over', (event, treeNode) => {
-      const dropNode = findNearestComponent(event.target, 'ElTreeNode');
+      const dropNode = findNearestComponent(event.target, 'MsTreeNode');
       const oldDropNode = dragState.dropNode;
       if (oldDropNode && oldDropNode !== dropNode) {
         removeClass(oldDropNode.$el, 'is-drop-inner');

@@ -43,7 +43,7 @@ export default {
         if (action === 'update') {
           this.computedWidth = this.getLabelWidth();
         } else if (action === 'remove') {
-          this.elForm.deregisterLabelWidth(this.computedWidth);
+          this.msForm.deregisterLabelWidth(this.computedWidth);
         }
       }
     }
@@ -52,8 +52,8 @@ export default {
   watch: {
     computedWidth(val, oldVal) {
       if (this.updateAll) {
-        this.elForm.registerLabelWidth(val, oldVal);
-        this.elFormItem.updateComputedLabelWidth(val);
+        this.msForm.registerLabelWidth(val, oldVal);
+        this.msFormItem.updateComputedLabelWidth(val);
       }
     }
   },

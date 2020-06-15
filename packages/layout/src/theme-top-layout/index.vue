@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ms-layout-default">
     <div class="ms-layout-left">
       <div class="ms-layout-left__top__header">
         <img src="msun-lib-ui/public/assets/favicon.png" />
@@ -8,7 +8,7 @@
       <div class="ms-layout-left__top__content">
         <ul class="ms-layout-left__nav">
           <li :class="{'ms-layout-left__active': isCollapse}" @click="setSettings">
-            <svg-icon class="ms-layout-left__svg-icon" name="hamburger" width="62" height="30"></svg-icon>
+            <svg-icon class="ms-layout-left__svg-icon" name="hamburger" width="62" height="60"></svg-icon>
           </li>
         </ul>
         <ms-layout-search></ms-layout-search>

@@ -1,11 +1,11 @@
 <template>
   <div class="ms-form-item" :class="[{
-      'ms-form-item--feedback': elForm && elForm.statusIcon,
+      'ms-form-item--feedback': msForm && msForm.statusIcon,
       'is-error': validateState === 'error',
       'is-validating': validateState === 'validating',
       'is-success': validateState === 'success',
       'is-required': isRequired || required,
-      'is-no-asterisk': elForm && elForm.hideRequiredAsterisk
+      'is-no-asterisk': msForm && msForm.hideRequiredAsterisk
     }, sizeClass ? 'ms-form-item--' + sizeClass : '']">
     <label-wrap :is-auto-width="labelStyle && labelStyle.width === 'auto'" :update-all="form.labelWidth === 'auto'">
       <label :for="labelFor" class="ms-form-item__label" :style="labelStyle" v-if="label || $slots.label">
@@ -16,7 +16,7 @@
       <slot></slot>
       <transition name="ms-zoom-in-top">
         <slot v-if="validateState === 'error' && showMessage && form.showMessage" name="error" :error="validateMessage">
-          <div class="ms-form-item__error" :class="{'ms-form-item__error--inline': typeof inlineMessage === 'boolean' ? inlineMessage : (elForm && elForm.inlineMessage || false)}">
+          <div class="ms-form-item__error" :class="{'ms-form-item__error--inline': typeof inlineMessage === 'boolean' ? inlineMessage : (msForm && msForm.inlineMessage || false)}">
             {{validateMessage}}
           </div>
         </slot>
@@ -106,7 +106,7 @@ export default {
         if (this.labelWidth === 'auto') {
           ret.marginLeft = this.computedLabelWidth;
         } else if (this.form.labelWidth === 'auto') {
-          ret.marginLeft = this.elForm.autoLabelWidth;
+          ret.marginLeft = this.msForm.autoLabelWidth;
         }
       } else {
         ret.marginLeft = labelWidth;

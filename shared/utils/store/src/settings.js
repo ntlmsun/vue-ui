@@ -5,7 +5,7 @@ const Settings = {
     theme: '#1890ff',
     fixedHeader: defaultSettings.fixedHeader,
     showSettings: defaultSettings.showSettings,
-    showTagsView: defaultSettings.showTagsView,
+    showTagsView: true,
     showSidebarLogo: defaultSettings.showSidebarLogo,
     sidebarTextTheme: defaultSettings.sidebarTextTheme
   },

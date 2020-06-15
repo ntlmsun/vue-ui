@@ -75,9 +75,9 @@ const TagsView = {
       content.commit('DEL_OTHERS_VISITED_VIEWS', { view: view });
       content.commit('DEL_OTHERS_CACHED_VIEWS', { view: view });
     },
-    DelAllViews(content, { view } = option) {
-      content.commit('DEL_ALL_VISITED_VIEWS', { view: view });
-      content.commit('DEL_ALL_CACHED_VIEWS', { view: view });
+    DelAllViews(content) {
+      content.commit('DEL_ALL_VISITED_VIEWS');
+      content.commit('DEL_ALL_CACHED_VIEWS');
     },
     DelAllCachedViews(content, { view } = option) {
       content.commit('DEL_ALL_CACHED_VIEWS', { view: view });
