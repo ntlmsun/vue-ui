@@ -5,6 +5,7 @@ import Cookie from 'msun-lib-ui/shared/utils/cookie/index';
  * @param sidebar 侧边栏
  * @param layout => theme-top-layout | theme-left-layout 排版设置
  * @param title  => 应用标题
+ * @param image  => 页面图片
  * @param device => Desktop | Mobile 显示模式
  * @param language => zh-CN 语言
  * @param size medium | small | mini 大小尺寸
@@ -25,7 +26,8 @@ const App = {
       withoutAnimation: false
     },
     layout: 'theme-top-layout',
-    title: '',
+    title: '标题名称',
+    image: null,
     device: 'Desktop',
     language: 'zh-CN',
     size: Cookie.getSize() || 'medium',
@@ -50,7 +52,11 @@ const App = {
       state.layout = layout;
     },
     SET_TITLE(state, { title } = option) {
-      state.title = title
+      state.title = title;
+    },
+    SET_IMAGE(state, { image } = option) {
+      console.log(image);
+      state.image = image;
     },
     TOGGLE_DEVICE(state, { device } = option) {
       state.device = device;
@@ -76,10 +82,13 @@ const App = {
       content.commit('CLOSE_SIDEBAR', { withoutAnimation: withoutAnimation });
     },
     SetLayout(content, { layout } = option) {
-      content.commit('SET_LAYOUT', { layout: layout })
+      content.commit('SET_LAYOUT', { layout: layout });
     },
     SetTitle(content, { title } = option) {
-      content.commit('SET_TITLE', { title: title })
+      content.commit('SET_TITLE', { title });
+    },
+    SetImage(content, { image } = option) {
+      content.commit('SET_IMAGE', { image: image });
     },
     ToggleDevice(content, { device } = option) {
       content.commit('TOGGLE_DEVICE', { device: device });

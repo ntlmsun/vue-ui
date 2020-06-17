@@ -1,0 +1,15 @@
+@import '../common/var';
+@import '../mixins/mixins';
+
+@include b(layout) {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+
+  @include e(header) {
+    position: fixed;
+  }
+}

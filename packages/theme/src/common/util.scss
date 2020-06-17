@@ -1,0 +1,50 @@
+@import '~element-ui/packages/theme-chalk/src/index';
+
+/** 导航高度 */
+$--layout-header: 64px;
+
+/** 侧边宽度 */
+$--layout-sidebar: 200px;
+
+/** 布局间距, 不可改变 */
+$--layout-gutter: 8px;
+
+/** 字体大小默认字号 */
+$--font-size-base: 13px;
+
+/** 主题颜色 */
+$--primary-color: #409eff !default;
+
+/** xs 文本大小 */
+$--text-xs: $--font-size-base - 1;
+
+/** sm 文本大小 */
+$--text-sm: $--font-size-base;
+
+/** md 文本大小 */
+$--text-md: $--font-size-base + 1;
+
+/** lg 文本大小 */
+$--text-lg: $--font-size-base + 3;
+
+/** xl 文本大小 */
+$--text-xl: $--font-size-base + 7;
+
+/** xxl 文本大小 */
+$--text-xxl: $--font-size-base + 13;
+
+/** sm 图标大小 */
+$--icon-sm: $--font-size-base * 2;
+
+/** md 图标大小 */
+$--icon-md: $--font-size-base * 4;
+
+/** lg 图标大小 */
+$--icon-lg: $--font-size-base * 6;
+
+/** xl 图标大小 */
+$--icon-xl: $--font-size-base * 8;
+
+/** xxl 图标大小 */
+$--icon-xxl: $--font-size-base * 10;
+

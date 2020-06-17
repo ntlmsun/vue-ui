@@ -1,3 +1,2 @@
-### 打包 
+# build:file => node build/bin/iconInit.js & node build/bin/build-entry.js
 
-npm run dist 

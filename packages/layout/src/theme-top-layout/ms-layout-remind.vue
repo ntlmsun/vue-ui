@@ -1,8 +1,8 @@
 <template>
   <li class="ms-layout-left__remind">
-    <ms-badge :value="200" :max="99">
+    <el-badge :value="200" :max="99">
       <svg-icon class="ms-layout-left__svg-icon" name="remind" width="62" height="60"></svg-icon>
-    </ms-badge>
+    </el-badge>
   </li>
 </template>
 <script>

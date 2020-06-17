@@ -2,7 +2,7 @@
   <div class="ms-layout-default">
     <div class="ms-layout-left">
       <div class="ms-layout-left__top__header">
-        <img src="msun-lib-ui/public/assets/favicon.png" />
+        <svg-icon name="logo" width="48" height="48"></svg-icon>
         <span>{{ title }}</span>
       </div>
       <div class="ms-layout-left__top__content">
@@ -47,6 +47,9 @@ export default {
     MsLayoutAvatar
   },
   computed: {
+    topicImage() {
+      return mStore.state.App.image;
+    },
     title() {
       return mStore.state.App.title;
     },
