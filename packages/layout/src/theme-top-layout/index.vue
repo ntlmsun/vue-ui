@@ -30,7 +30,6 @@
   </div>
 </template>
 <script>
-import mStore from 'msun-lib-ui/shared/utils/store';
 import MsLayoutWorkbench from './ms-layout-workbench.vue';
 import MsLayoutDesktop from './ms-layout-desktop.vue';
 import MsLayoutSearch from './ms-layout-search.vue';
@@ -48,19 +47,19 @@ export default {
   },
   computed: {
     topicImage() {
-      return mStore.state.App.image;
+      return this.$mStore.state.App.image;
     },
     title() {
-      return mStore.state.App.title;
+      return this.$mStore.state.App.title;
     },
     isCollapse() {
-      return mStore.state.App.sidebar.opened;
+      return this.$mStore.state.App.sidebar.opened;
     },
     customFontSize() {
-      return mStore.state.App.customFontSize;
+      return this.$mStore.state.App.customFontSize;
     },
     cachedViews() {
-      return mStore.state.TagsView.cachedViews;
+      return this.$mStore.state.TagsView.cachedViews;
     },
     key() {
       return this.$route.path;
@@ -68,7 +67,7 @@ export default {
   },
   methods: {
     setSettings() {
-      mStore.dispatch('ToggleSideBar', { withoutAnimation: false });
+      this.$mStore.dispatch('ToggleSideBar', { withoutAnimation: false });
     }
   }
 };

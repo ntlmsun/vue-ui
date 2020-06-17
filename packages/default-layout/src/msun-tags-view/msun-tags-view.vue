@@ -2,31 +2,28 @@
   <div id="tags-view-container" class="tags-view-container">
     <msun-scroll-pane ref="scrollPane" class="tags-view-wrapper">
       <router-link v-for="tag in visitedViews" ref="tag" :key="tag.path" :class="isActive(tag) ? 'active' : ''" :style="{fontSize: customFontSize + 'px'}" :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}" tag="span" class="tags-view-item" @click.middle.native="!isAffix(tag)?closeSelectedTag(tag):''" @contextmenu.prevent.native="openMenu(tag, $event)">
-        {{ t('route.' + tag.meta.title) }}
-        <span v-if="!isAffix(tag)" class="ms-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
+        {{ $t('route.' + tag.meta.title) }}
+        <span v-if="!isAffix(tag)" class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
       </router-link>
     </msun-scroll-pane>
-    <ul v-show="visible" :style="{left: left + 'px', top: top + 'px'}" class="contextmenu">
+    <ul v-show="visible" :style="{left: left+'px', top: top+'px'}" class="contextmenu">
       <li @click="refreshSelectedTag(selectedTag)">
-        {{ t('tagsView.refresh') }}
+        {{ $t('tagsView.refresh') }}
       </li>
       <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
-        {{ t('tagsView.close') }}
+        {{ $t('tagsView.close') }}
       </li>
       <li @click="closeOthersTags">
-        {{ t('tagsView.closeOthers') }}
+        {{ $t('tagsView.closeOthers') }}
       </li>
       <li @click="closeAllTags(selectedTag)">
-        {{ t('tagsView.closeAll') }}
+        {{ $t('tagsView.closeAll') }}
       </li>
     </ul>
   </div>
 </template>
 <script>
 import MsunScrollPane from './msun-scroll-pane.vue';
-import { t } from 'msun-lib-ui/shared/locale';
-import Locale from 'msun-lib-ui/shared/mixins/locale';
-import mStore from 'msun-lib-ui/shared/utils/store';
 import path from 'path';
 
 export default {
@@ -34,7 +31,6 @@ export default {
   components: {
     MsunScrollPane
   },
-  mixins: [Locale],
   data() {
     return {
       visible: false,
@@ -46,13 +42,13 @@ export default {
   },
   computed: {
     customFontSize() {
-      return (mStore.state.App.customFontSize / 24) * 16;
+      return (this.$mStore.state.App.customFontSize / 24) * 16;
     },
     visitedViews() {
-      return mStore.state.TagsView.visitedViews;
+      return this.$mStore.state.TagsView.visitedViews;
     },
     routes() {
-      return mStore.state.Route.routes;
+      return this.$mStore.state.Route.routes;
     }
   },
   watch: {
@@ -67,10 +63,6 @@ export default {
         document.body.removeEventListener('click', this.closeMenu());
       }
     }
-  },
-  mounted() {
-    this.initTags();
-    this.addTags();
   },
   methods: {
     isActive(route) {
@@ -104,25 +96,25 @@ export default {
       this.affixTags = this.filterAffixTags(this.routes);
       for (const tag of this.affixTags) {
         if (tag.name) {
-          mStore.dispatch('AddVisitedView', { view: tag });
+          TagsViewModule.addVisitedView(tag);
         }
       }
     },
     addTags() {
       const { name } = this.$route;
       if (name) {
-        mStore.dispatch('AddView', { view: this.$route });
+        TagsViewModule.addView(this.$route);
       }
       return false;
     },
     moveToCurrentTag() {
-      const tags = this.$refs.tag || [];
+      const tags = this.$refs.tag;
       this.$nextTick(() => {
-        for (let i = 0; i < tags.length; i++) {
-          if (tags[i].to.path === this.$route.path) {
-            this.$refs.scrollPane.ntMoveToTarget(tags[i]);
-            if (tags[i].to.fullPath !== this.$route.fullPath) {
-              mStore.dispatch('UpdateVisitedView', { view: this.$route });
+        for (const tag of tags) {
+          if (tag.to.path === this.$route.path) {
+            this.$refs.scrollPane.moveToTarget(tag);
+            if (tag.to.fullPath !== this.$route.fullPath) {
+              TagsViewModule.updateVisitedView(this.$route);
             }
             break;
           }
@@ -130,7 +122,7 @@ export default {
       });
     },
     refreshSelectedTag(view) {
-      mStore.dispatch('DelCachedView', { view: view });
+      TagsViewModule.delCachedView(view);
       const { fullPath } = view;
       this.$nextTick(() => {
         this.$router.replace({
@@ -139,22 +131,22 @@ export default {
       });
     },
     closeSelectedTag(view) {
-      mStore.dispatch('DelView', { view: view });
+      TagsViewModule.delView(view);
       if (this.isActive(view)) {
-        this.toLastView(mStore.state.TagsView.visitedViews, view);
+        this.toLastView(TagsViewModule.visitedViews, view);
       }
     },
     closeOthersTags() {
       this.$router.push(this.selectedTag);
-      mStore.dispatch('DelOthersViews', { view: this.selectedTag });
+      TagsViewModule.delOthersViews(this.selectedTag);
       this.moveToCurrentTag();
     },
     closeAllTags(view) {
-      mStore.dispatch('DelAllViews');
+      TagsViewModule.delAllViews();
       if (this.affixTags.some(tag => tag.path === this.$route.path)) {
         return;
       }
-      this.toLastView(mStore.state.TagsView.visitedViews, view);
+      this.toLastView(TagsViewModule.visitedViews, view);
     },
     toLastView(visitedViews, view) {
       const latestView = visitedViews.slice(-1)[0];

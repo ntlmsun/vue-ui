@@ -5,24 +5,20 @@ import oAxiosInterceptor from '../shared/utils/axios/axios.js';
 import { Startup } from '../shared/utils/axios/startup.js';
 import mStore from '../shared/utils/store/index.js';
 import Http from '../shared/utils/http/index.js';
-import ElementUI from 'element-ui';
 import Convert from '../shared/utils/convert/index.js';
 import Cookie from '../shared/utils/cookie/index.js';
-import Permission from '../shared/utils/init/permission.js';
-import App from '../shared/utils/init/app.js';
+import Permission from '../shared/utils/permission/permission.js';
+import ElementUI from 'element-ui';
 import '../packages/icons/components';
 import SvgIcon from 'vue-svgicon';
 import Router from 'vue-router';
 import * as directives from '../shared/directives';
-import locale from 'msun-lib-ui/shared/locale';
-import CollapseTransition from 'msun-lib-ui/shared/transitions/collapse-transition';
 
 const components = [
-  Layout,
-  CollapseTransition
+  Layout
 ];
 
-const install = function(Vue, opts = {}) {
+const install = function(Vue) {
 
   components.forEach(component => {
     Vue.component(component.name, component);
@@ -32,20 +28,14 @@ const install = function(Vue, opts = {}) {
     Vue.directive(key, directives[key])
   })
 
-  Vue.prototype.$MSUN = {
-    size: opts.size || '',
-    zIndex: opts.zIndex || 2000
-  }
+  Vue.use(ElementUI, {
+    size: mStore.state.App.size
+  })
 
   Vue.use(SvgIcon, {
     tagName: 'svg-icon',
     defaultWidth: '1em',
     defaultHeight: '1em'
-  });
-
-  Vue.use(ElementUI, {
-    size: mStore.state.App.size,
-    i18n: (key, value) => i18n.t(key, value)
   });
 
   Vue.use(Router);
@@ -66,16 +56,12 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.0',
-  locale: locale.use,
-  i18n: locale.i18n,
+  version: '0.0.4-beta.0.1',
   install,
-  App,
   Http,
   Convert,
   Cookie,
   mStore,
   Permission,
-  CollapseTransition,
   Layout
 };

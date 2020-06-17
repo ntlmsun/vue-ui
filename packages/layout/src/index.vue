@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import mStore from 'msun-lib-ui/shared/utils/store';
 import ThemeTopLayout from './theme-top-layout/index.vue';
 
 export default {
@@ -13,7 +12,7 @@ export default {
   },
   computed: {
     getLayout() {
-      return mStore.state.App.layout;
+      return this.$mStore.state.App.layout;
     }
   }
 };

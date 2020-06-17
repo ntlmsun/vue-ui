@@ -17,7 +17,6 @@ import MsunNavbar from './msun-navbar/msun-navbar.vue';
 import MsunSidebar from './msun-sidebar/msun-sidebar.vue';
 import MsunTagsView from './msun-tags-view/msun-tags-view.vue';
 import ResizeMixin from './mixin/resize.js';
-import mStore from 'msun-lib-ui/shared/utils/store';
 
 export default {
   name: 'MsunDefaultLayout',
@@ -38,15 +37,15 @@ export default {
       };
     },
     showTagsView() {
-      return mStore.state.Settings.showTagsView;
+      return this.$mStore.state.Settings.showTagsView;
     },
     fixedHeader() {
-      return mStore.state.Settings.fixedHeader;
+      return this.$mStore.state.Settings.fixedHeader;
     }
   },
   methods: {
     ntClickOutSide() {
-      mStore.dispatch('CloseSideBar', { withoutAnimation: false });
+      this.$mStore.dispatch('CloseSideBar', { withoutAnimation: false });
     }
   }
 };

@@ -7,18 +7,8 @@ import { MsunHttpClient } from './http';
 import { MsLayout } from './layout';
 import { MsunPermission } from './permission';
 import { Store } from './store';
-import { MsunApp } from './app';
 
-export interface InstallationOptions {
-  locale: any;
-  i18n: any;
-  size: string;
-}
-
-/** The version of msun-lib-ui */
-export const version: string;
-
-export function install(vue: typeof Vue, options?: InstallationOptions): void;
+export function install(vue: typeof Vue): void;
 
 /** MsunUI component common definition */
 export type Component = MsunUIComponent;
@@ -31,9 +21,6 @@ export type HorizontalAlignment = MsunUIHorizontalAlignment;
 
 /** store module */
 export const mStore: Store<any>;
-
-/** app */
-export const App: MsunApp;
 
 /** cookie */
 export const Cookie: MsunCookie;

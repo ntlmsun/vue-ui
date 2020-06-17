@@ -1,31 +1,22 @@
 <template>
-  <ms-breadcrumb class="msun-bread-crumb" separator="/">
+  <el-breadcrumb class="msun-bread-crumb" separator="/">
     <transition-group name="msun-breadCrumb">
-      <ms-breadcrumb-item v-for="(item, index) in breadCrumbs" :key="item.path" :style="{fontSize: customFontSize + 'px'}">
+      <el-breadcrumb-item v-for="(item, index) in breadCrumbs" :key="item.path" :style="{fontSize: customFontSize + 'px'}">
         <span v-if="item.redirect === 'noredirect' || index === breadCrumbs.length - 1" class="msun-no-redirect">
-          {{ t("route." + item.meta.title) }}
+          {{ $t("route." + item.meta.title) }}
         </span>
         <a v-else @click.prevent="ntLink(item)">
-          {{ t("route." + item.meta.title) }}
+          {{ $t("route." + item.meta.title) }}
         </a>
-      </ms-breadcrumb-item>
+      </el-breadcrumb-item>
     </transition-group>
-  </ms-breadcrumb>
+  </el-breadcrumb>
 </template>
 <script>
-import MsBreadcrumb from 'msun-lib-ui/packages/breadcrumb';
-import MsBreadcrumbItem from 'msun-lib-ui/packages/breadcrumb-item';
-import { t } from 'msun-lib-ui/shared/locale';
-import Locale from 'msun-lib-ui/shared/mixins/locale';
 const pathToRegexp = require('path-to-regexp');
 
 export default {
   name: 'MsunBreadCrumb',
-  components: {
-    MsBreadcrumb,
-    MsBreadcrumbItem
-  },
-  mixins: [Locale],
   data() {
     return {
       breadCrumbs: []

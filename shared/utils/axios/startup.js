@@ -4,7 +4,7 @@ const Base64 = require('js-base64').Base64;
 
 export class Startup {
   static bootstrap() {
-    if (Vue.prototype.$NODE_ENV === 'development') {
+    if (Vue.prototype.$NODE_ENV === 'development' || Vue.prototype.$NODE_ENV === 'production') {
       if (!window.localStorage.getItem('selectedSystem')) {
         window.localStorage.setItem('selectedSystem', JSON.stringify(selectedSystem));
       }
