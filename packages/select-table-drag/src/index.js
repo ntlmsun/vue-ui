@@ -41,7 +41,7 @@ const listener = (el, binding) => {
         keyUp = false;
         event.preventDefault();
         event.stopPropagation();
-        binding.value.call(SelectTableDrag, { startIndex, endIndex, tbody });
+        binding.value.call(this, { startIndex, endIndex, tbody });
       } else {
         const TRNODE = isElement(event.toElement);
         const index = getIndex(tbody, TRNODE);
@@ -64,7 +64,16 @@ const listener = (el, binding) => {
     } else {
       endIndex = 0;
     }
-    binding.value.call(SelectTableDrag, { startIndex, endIndex, tbody });
+    binding.value.call(this, { startIndex, endIndex, tbody });
+  });
+
+  el.addEventListener('mouseleave', event => {
+    if (keyUp) {
+      keyUp = false;
+      event.preventDefault();
+      event.stopPropagation();
+      binding.value.call(this, { startIndex, endIndex, tbody });
+    }
   });
 };
 
