@@ -6,10 +6,12 @@
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-row class="ms-layout-left__row">
-          <template v-for="item in msWorkbench">
-            <el-col :key="item.key" :span="6" class="ms-layout-left__col">
-              <svg-icon class="ms-layout-left__workbench__icon" :name="item.icon" width="36" height="36"></svg-icon>
-              <small>{{ item.title }}</small>
+          <template v-for="(item, i) in routes">
+            <el-col :key="i" :span="6" class="ms-layout-left__col" :class="[routes.length > 4 ? 'ms-menu-max' : 'ms-menu-min']">
+              <router-link :to="item.path" :key="i">
+                <svg-icon class="ms-layout-left__workbench__icon" :name="item.icon" width="36" height="36"></svg-icon>
+                <small>{{ item.title }}</small>
+              </router-link>
             </el-col>
           </template>
         </el-row>
@@ -20,19 +22,10 @@
 <script>
 export default {
   name: 'MsLayoutWorkbench',
-  data() {
-    return {
-      msWorkbench: [
-        { key: '1', icon: 'patient', title: '患者管理' },
-        { key: '2', icon: 'treatment', title: '治疗清单' },
-        { key: '3', icon: 'record', title: '电子病历' },
-        { key: '4', icon: 'charge', title: '收费管理' },
-        { key: '5', icon: 'patient', title: '患者管理' },
-        { key: '6', icon: 'treatment', title: '治疗清单' },
-        { key: '7', icon: 'record', title: '电子病历' },
-        { key: '8', icon: 'charge', title: '收费管理' }
-      ]
-    };
+  computed: {
+    routes() {
+      return this.$mStore.getters.getRoutes;
+    }
   }
 };
 </script>

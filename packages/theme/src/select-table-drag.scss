@@ -1,0 +1,7 @@
+@import './common/var.scss';
+@import './mixins/mixins';
+
+@include b(table-drag) {
+  background-color: rgb(32, 160, 255) !important;
+  color: #fff;
+}

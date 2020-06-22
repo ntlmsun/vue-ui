@@ -1,10 +1,11 @@
-@import '~element-ui/packages/theme-chalk/src/index';
-
 /** 导航高度 */
 $--layout-header: 64px;
 
+/** 路由标签高度 */
+$--reuse-tab: 34px;
+
 /** 侧边宽度 */
-$--layout-sidebar: 200px;
+$--layout-sidebar: 250px;
 
 /** 布局间距, 不可改变 */
 $--layout-gutter: 8px;
@@ -12,8 +13,23 @@ $--layout-gutter: 8px;
 /** 字体大小默认字号 */
 $--font-size-base: 13px;
 
+/** 边框大小 */
+$--border-width: 1px;
+
+/** 边框样式 */
+$--border-style: solid;
+
+/** 边框颜色 */
+$--border-color: #d8dce5;
+
 /** 主题颜色 */
 $--primary-color: #409eff !default;
+
+/** color|1|Brand Color|0 dark */
+$--primary-color-dark: #0b7fea !default;
+
+/** 基础底色 */
+$--base-color: #FFF !default;
 
 /** xs 文本大小 */
 $--text-xs: $--font-size-base - 1;

@@ -1,0 +1,109 @@
+@import './common/util.scss';
+@import './mixins/mixins.scss';
+
+@include b(reuse-tab) {
+  position: fixed;
+  top: $--layout-header;
+  left: 0;
+  right: 0;
+  margin: 0;
+  height: $--reuse-tab;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+
+  .ms-reuse-tab__wrapper {
+    .ms-reuse-tab__item {
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      height: $--reuse-tab - $--layout-gutter;
+      line-height: $--reuse-tab - $--layout-gutter;
+      border: $--border-width $--border-style $--border-color;
+      color: #495060;
+      background: $--base-color;
+      padding: 0 $--layout-gutter * 2;
+      font-size: $--font-size-base;
+      margin-left: $--layout-gutter;
+      margin-top: $--layout-gutter / 2;
+      user-select: none;
+
+      &:first-of-type {
+        margin-left: $--layout-gutter * 2;
+      }
+
+      &:last-of-type {
+        margin-right: $--layout-gutter * 2;
+      }
+
+      &.active {
+        background-color: $--primary-color;
+        border-color: $--primary-color;
+        color: $--base-color;
+      }
+
+      &.close {
+        padding-right: 0;
+      }
+
+      &::before {
+        content: none;
+        background: $--base-color;
+        display: inline-block;
+        width: $--layout-gutter;
+        height: $--layout-gutter;
+        border-radius: 50%;
+        position: relative;
+        margin-right: $--layout-gutter / 2;
+      }
+
+      .el-icon-close {
+        width: 16px;
+        height: 16px;
+        vertical-align: 2px;
+        border-radius: 50%;
+        text-align: center;
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        transform-origin: 100% 50%;
+
+        &:before {
+          transform: scale(0.6);
+          display: inline-block;
+          vertical-align: -3px;
+        }
+
+        &:hover {
+          background-color: #b4bccc;
+          color: $--base-color;
+        }
+      }
+    }
+
+    .ms-scrollbar__wrap {
+      overflow: auto;
+    }
+  }
+
+  .contextmenu {
+    margin: 0;
+    background: $--base-color;
+    z-index: 3000;
+    position: absolute;
+    list-style-type: none;
+    padding: $--layout-gutter / 2 0;
+    border-radius: 4px;
+    font-size: $--font-size-base;
+    font-weight: 400;
+    color: #333;
+    box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.3);
+
+    li {
+      margin: 0;
+      padding: $--layout-gutter $--layout-gutter * 2;
+      cursor: pointer;
+
+      &:hover {
+        background: #eee;
+      }
+    }
+  }
+}

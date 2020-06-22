@@ -16,7 +16,8 @@
     "semi": "off",
     "indent": "off",
     "padded-blocks": "off",
-    "no-multiple-empty-lines": "off"
+    "no-multiple-empty-lines": "off",
+    "vue/no-oarsing-error": 0
   },
   "parserOptions": {
     "ecmaVersion": 6,

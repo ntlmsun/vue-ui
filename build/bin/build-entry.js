@@ -37,6 +37,8 @@ const install = function(Vue) {
   Object.keys(directives).forEach(key => {
     Vue.directive(key, directives[key])
   })
+
+  Vue.use(SelectTableDrag);
   
   Vue.use(ElementUI, {
     size: mStore.state.App.size
@@ -95,7 +97,7 @@ ComponentNames.forEach(name => {
     })
   );
 
-  if (['Message'].indexOf(componentName) === -1) {
+  if (['SelectTableDrag'].indexOf(componentName) === -1) {
     installTemplate.push(
       render(INSTALL_COMPONENT_TEMPLATE, {
         name: componentName,

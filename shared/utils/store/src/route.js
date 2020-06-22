@@ -25,14 +25,6 @@ const Route = {
     routes: [],
     dynamicRoutes: []
   },
-  getters: {
-    getRoutes(state) {
-      return state.routes;
-    },
-    getDynamicRoutes(state) {
-      return state.dynamicRoutes;
-    }
-  },
   mutations: {
     SET_ROUTES(state, { constantRoutes, asyncRoutes } = option) {
       state.routes = constantRoutes.concat(asyncRoutes);

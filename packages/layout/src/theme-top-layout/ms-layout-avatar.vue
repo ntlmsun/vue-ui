@@ -5,7 +5,7 @@
         <el-avatar>
           <svg-icon name="doctor" width="40" height="40"></svg-icon>
         </el-avatar>
-        肾内科护理单元 <br> 郑元畅
+        {{ getDept }} <br> {{ getUser }}
       </span>
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item>个人中心</el-dropdown-item>
@@ -17,6 +17,14 @@
 </template>
 <script>
 export default {
-  name: 'MsLayoutAvatar'
+  name: 'MsLayoutAvatar',
+  computed: {
+    getDept() {
+      return this.$mStore.state.User.deptName;
+    },
+    getUser() {
+      return this.$mStore.state.User.userName;
+    }
+  }
 };
 </script>

@@ -25,6 +25,15 @@ const App = {
       opened: Cookie.getSidebarStatus() !== 'closed',
       withoutAnimation: false
     },
+    header: {
+      sidebar: true,
+      read: true,
+      home: true,
+      notice: true
+    },
+    page: {
+      title: null
+    },
     layout: 'theme-top-layout',
     title: '标题名称',
     image: null,
@@ -48,6 +57,18 @@ const App = {
       state.sidebar.withoutAnimation = withoutAnimation;
       Cookie.setSidebarStatus('closed');
     },
+    SET_HEADER(state, { header } = option) {
+      const { key, value } = header;
+      if (Object.prototype.hasOwnProperty.call(state.header, key)) {
+        state.header[key] = value;
+      }
+    },
+    SET_PAGE(state, { page } = option) {
+      const { key, value } = page;
+      if (Object.prototype.hasOwnProperty.call(state.page, key)) {
+        state.page[key] = value;
+      }
+    },
     SET_LAYOUT(state, { layout } = option) {
       state.layout = layout;
     },
@@ -55,7 +76,6 @@ const App = {
       state.title = title;
     },
     SET_IMAGE(state, { image } = option) {
-      console.log(image);
       state.image = image;
     },
     TOGGLE_DEVICE(state, { device } = option) {
@@ -80,6 +100,12 @@ const App = {
     },
     CloseSideBar(content, { withoutAnimation } = option) {
       content.commit('CLOSE_SIDEBAR', { withoutAnimation: withoutAnimation });
+    },
+    SetHeader(content, { header } = option) {
+      content.commit('SET_HEADER', { header });
+    },
+    SetPage(content, { page } = option) {
+      content.commit('SET_PAGE', { page });
     },
     SetLayout(content, { layout } = option) {
       content.commit('SET_LAYOUT', { layout: layout });

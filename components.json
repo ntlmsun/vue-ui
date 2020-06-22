@@ -1,3 +1,6 @@
 {
-  "layout": "./packages/layout/index.js"
+  "layout": "./packages/layout/index.js",
+  "select-table-drag": "./packages/select-table-drag/index.js",
+  "reuse-tab": "./packages/reuse-tab/index.js",
+  "scrollbar": "./packages/scrollbar/index.js"
 }
