@@ -36,7 +36,6 @@ const App = {
     },
     layout: 'theme-top-layout',
     title: '标题名称',
-    image: null,
     device: 'Desktop',
     language: 'zh-CN',
     size: Cookie.getSize() || 'medium',
@@ -75,9 +74,6 @@ const App = {
     SET_TITLE(state, { title } = option) {
       state.title = title;
     },
-    SET_IMAGE(state, { image } = option) {
-      state.image = image;
-    },
     TOGGLE_DEVICE(state, { device } = option) {
       state.device = device;
     },
@@ -112,9 +108,6 @@ const App = {
     },
     SetTitle(content, { title } = option) {
       content.commit('SET_TITLE', { title });
-    },
-    SetImage(content, { image } = option) {
-      content.commit('SET_IMAGE', { image: image });
     },
     ToggleDevice(content, { device } = option) {
       content.commit('TOGGLE_DEVICE', { device: device });

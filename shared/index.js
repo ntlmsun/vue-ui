@@ -63,7 +63,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.1.2-beta.0.7',
+  version: '0.1.2-beta.0.8',
   install,
   Http,
   Convert,

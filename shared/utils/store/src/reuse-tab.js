@@ -77,8 +77,8 @@ const ReuseTab = {
       content.commit('DEL_ALL_VISITED_VIEWS');
       content.commit('DEL_ALL_CACHED_VIEWS');
     },
-    DelAllCachedViews(content, { view } = option) {
-      content.commit('DEL_ALL_CACHED_VIEWS', { view: view });
+    DelAllCachedViews(content) {
+      content.commit('DEL_ALL_CACHED_VIEWS');
     },
     UpdateVisitedView(content, { view } = option) {
       content.commit('UPDATE_VISITED_VIEW', { view: view });

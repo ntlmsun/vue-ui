@@ -25,7 +25,10 @@ const listener = (el, binding) => {
 
   const tbody = el.querySelectorAll('tbody')[0].children;
 
+  let hasMose = false;
+
   el.addEventListener('mousedown', event => {
+    hasMose = false;
     keyUp = true;
     const TRNODE = isElement(event.toElement);
     startIndex = getIndex(tbody, TRNODE);
@@ -36,6 +39,9 @@ const listener = (el, binding) => {
   });
 
   el.addEventListener('mousemove', event => {
+    if (event.which === 1) {
+      hasMose = true;
+    }
     if (keyUp) {
       if (event.toElement === el || (event.toElement.nodeName === 'TH' || event.toElement.parentNode.nodeName === 'TH')) {
         keyUp = false;
@@ -54,6 +60,9 @@ const listener = (el, binding) => {
   });
 
   el.addEventListener('mouseup', event => {
+    if (!hasMose) {
+      return false;
+    }
     if (keyUp) {
       keyUp = false;
       const TRNODE = isElement(event.toElement);
@@ -70,9 +79,11 @@ const listener = (el, binding) => {
   el.addEventListener('mouseleave', event => {
     if (keyUp) {
       keyUp = false;
-      event.preventDefault();
-      event.stopPropagation();
-      binding.value.call(this, { startIndex, endIndex, tbody });
+      if (hasMose) {
+        event.preventDefault();
+        event.stopPropagation();
+        binding.value.call(this, { startIndex, endIndex, tbody });
+      }
     }
   });
 };
